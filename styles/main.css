@@ -197,6 +197,17 @@ nav {
     display: flex;
 }
 
+.search-inner {
+    font-size: 0;
+    letter-spacing: 0;
+    word-spacing: 0;
+}
+
+.search-inner > * {
+    display: inline-block;
+     vertical-align: top;
+}
+
 .header-top {
      padding-left: 22px;
     padding-right: 22px;
@@ -211,6 +222,7 @@ nav {
 .header-top-wrapper {
     background-color: rgb(213, 214, 216);
 }
+
 
 .strapline {
     text-align: right;
@@ -290,6 +302,7 @@ nav {
      padding-left: 22px;
     padding-right: 22px;
 }
+
 }
 @media (min-width: 1200px) {
     #fixed-header {
@@ -406,9 +419,10 @@ header a:hover, footer a:hover {
 .search-inner {
     position: relative;
     width: 80%;
-    display: flex;
     margin-left: auto;
 }
+
+
 
 .search-inner button {
     width: 10%;
@@ -474,6 +488,24 @@ header a:hover, footer a:hover {
     .dropdown {
         display: table-cell;
     }
+
+    /* STYLES FOR IE 9 !!!!!!!!!!!!!! */
+
+
+.main-menu {
+    display: inline-table !important;
+}
+
+.search-bar {
+    max-width: 40% !important;
+    display: inline-block !important;
+   
+}
+
+
+
+/* END OF IE 9 styles !!!!!!!!!!!!!!!!!*/
+
 
     @supports (display: flex) {
          .main-menu {
@@ -585,7 +617,6 @@ footer nav a {
 .search-bar input {
     width: 90%;
     border: 0;
-    display: block;
 }
 
 
@@ -655,6 +686,7 @@ footer nav a {
 /* MESSAGE FOR OLD IE*/
 .message {
     position: fixed;
+    background-color: white;
 }
 .none {
     display: none;
