@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic,900' rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="styles-dist/main-dist.css">
+    <link rel="stylesheet" href="styles-dist/contact-dist.css">
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+    <title>Contact</title>
+</head>
+<body class="contact">
+
+   <div class="wrapper">
+        <main class="contact-page">
+<h1>Contact us</h1>
+<p class="contact-subheading main-subheading">Our Customer Service Team is standing by</p>
+
+
+<div class="left">
+<h2>Telephone</h2>
+<p><a href="tel:01233896820">(01233) 896820</a><br>
+Open: 9am-5pm, Monday-Friday, excluding Bank Holidays.</p>
+
+<h2>Write to us</h2>
+<p>Duet Group, Bank House, Bank Street, Ashford, Kent TN23 1BX</p>
+
+<h2>Email</h2>
+<p>Email us at <a href="mailto:enquiries@duetshop.co.uk">enquiries@duetshop.co.uk</a></p>
+
+</div>
+
+
+<div class="right">
+    
+<h2>Send us a message</h2>
+<p>We aim to reply within one working day.</p>
+<small>All fields are required</small>
+<form class="send-message-form" action="">
+
+<label for="name">Name</label><span id="no-name">Enter your name</span><input id="name" type="text">
+
+<label for="email">Email</label><span id="no-email">Enter your email address</span><input id="email" type="email">
+
+<label for="message">Message</label><span id="no-message">Enter a message</span>
+<textarea name="message" id="message" cols="30" rows="10"></textarea>
+
+<button id="send-message-form-button">SEND</button>
+</form>
+
+</div>
+
+    </main>
+
+    <div class="success-popup">
+        <h3 class="success-heading">Message sent</h3>
+        <p>Thanks for getting in touch. <br>
+        Expect to hear back from us within one working day.</p>
+        <button>OK</button>
+    </div>
+
+   </div>
+    <script src=scripts/contact.js></script>
+</body>
+</html>

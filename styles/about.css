@@ -1,0 +1,69 @@
+.about-main-title {
+     margin-bottom: 8px;
+}
+
+.about-subheading {
+    margin-top: 0;
+    margin-bottom: 58px;
+}
+
+.firstp {
+    margin-top: 0;
+}
+
+cite {
+    margin-top: 19px;
+    display: block;
+}
+
+blockquote {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.trombone-girl {
+    max-width: 100%;
+    padding-bottom: 15px;
+}
+
+@media(min-width: 768px) {
+    .trombone-girl {
+        float: right;
+        margin-right: -190px;
+        width: 380px;
+        padding-left: 20px;
+        padding-bottom: 3px;
+    }
+
+    .float-container {
+        max-width: calc(100% - 190px);
+    }  
+
+    blockquote {
+        padding: 30px;
+    }
+}
+
+@media(min-width: 1000px) {
+    .trombone-girl {
+        margin-right: 0;
+        width: 500px;
+        padding-left: 30px;
+    }
+
+.overflow-hidden {
+    overflow: hidden;
+    /*max-width: 650px;*/
+    padding-right: 20px;
+}
+
+.float-container {
+    max-width: none;
+}
+}
+
+@media(min-width: 1100px) {
+    .overflow-hidden {
+    padding-right: 30px;
+}
+}
