@@ -199,7 +199,7 @@ button {
 }
 
 .main-menu {
-    position: absolute;
+    position: fixed;
     top: 53px;
 }
 
@@ -290,7 +290,6 @@ nav {
 #fixed-header {
     width: 100%;
     margin: 0;
-    will-change: position;
 }
 
 /* MEDIA QUERIES */
@@ -346,7 +345,6 @@ nav {
 .main-menu {
 
     margin: 0;
-    will-change: transform;
    transform-origin: top;
    transition: .4s;
    overflow-y: scroll;
