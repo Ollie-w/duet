@@ -246,22 +246,52 @@
 
 
 function stuffToDoAtVariousSizes() {
-    /* if (window.innerWidth > 500) {
-                $(".search-bar").appendTo("#fixed-header");
-                if (screen.width > 1000 ) {
-                    $(".main-menu").prependTo("#fixed-header");
 
-                    $(".drop-btn").hover(function(e) {
-                        $(e.target).next(".dropdown-content").removeClass("max-height-zero");
-                    });
-                    $(".drop-btn").mouseleave(function(e) {
-                        $(e.target).next(".dropdown-content").addClass("max-height-zero");
-                    });
-                }
+            if (window.innerWidth < 1000) {
+
+        //HAMBURGER ANIMATION
+        $(".hamburger").click(function () {
+            $(this).toggleClass("is-active");
+
+        });
+
+        var dropdownOpen = false;
+        var searchBarShowing = false;
+
+
+        //TOGGLE DROPDOWN. WHEN DROPDOWN IS OPENED SEARCH BAR IS HIDDEN
+        $(".hamburger").click(function () {
+            if (dropdownOpen) {
+                $(".wrapper").removeClass("blur-filter");
+                $(".main-menu").addClass("closed");
+                dropdownOpen = false;
+                $(".btn-text").text("INSTRUMENTS");
             }
+            else if (!dropdownOpen && searchBarShowing) {
+                $(".search-bar").addClass("display-none");
+                searchBarShowing = false;
+                $(".main-menu").removeClass("closed");
+                $(".btn-text").text("CLOSE");
+                dropdownOpen = true;
+            }
+            else if (!dropdownOpen && !searchBarShowing) {
+                $(".wrapper").addClass("blur-filter");
+                $(".main-menu").removeClass("closed");
+                $(".btn-text").text("CLOSE");
+                dropdownOpen = true;
+            }
+        });
 
-            else*/ if (window.innerWidth < 1000) {
-        console.log("screen is small")
+        //OPEN SUBMENUS AND TURN SVG ICONS AROUND. ONLY ONE SUBMENU CAN BE OPEN AT A TIME, OPENING ONE CLOSES OTHERS
+        $(".drop-btn").click(function (e) {
+            $(".drop-btn").not(e.target).siblings(".dropdown-content").addClass("max-height-zero");
+            $(".drop-btn").not(e.target).closest("div").find(".chevron").removeClass("swivel");
+            $(".drop-btn").not(e.target).removeClass("blue-background");
+            $(e.target).siblings(".dropdown-content").toggleClass("max-height-zero");
+            $(e.target).closest("div").find(".chevron").toggleClass("swivel");
+            $(e.target).toggleClass("blue-background");
+        });
+
         function scrollHeader() {
 
 
@@ -286,38 +316,8 @@ function stuffToDoAtVariousSizes() {
         window.addEventListener("scroll", scrollHeader);
 
 
-        if (window.innerWidth < 500) {
-            var dropdownOpen = false;
-            var searchBarShowing = false;
+        if (window.innerWidth < 559) {
 
-            //HAMBURGER ANIMATION
-            $(".hamburger").click(function () {
-                $(this).toggleClass("is-active");
-
-            })
-
-            //TOGGLE DROPDOWN. WHEN DROPDOWN IS OPENED SEARCH BAR IS HIDDEN
-            $(".hamburger").click(function () {
-                if (dropdownOpen) {
-                    $(".wrapper").removeClass("blur-filter");
-                    $(".main-menu").addClass("closed");
-                    dropdownOpen = false;
-                    $(".btn-text").text("INSTRUMENTS");
-                }
-                else if (!dropdownOpen && searchBarShowing) {
-                    $(".search-bar").addClass("display-none");
-                    searchBarShowing = false;
-                    $(".main-menu").removeClass("closed");
-                    $(".btn-text").text("CLOSE");
-                    dropdownOpen = true;
-                }
-                else if (!dropdownOpen && !searchBarShowing) {
-                    $(".wrapper").addClass("blur-filter");
-                    $(".main-menu").removeClass("closed");
-                    $(".btn-text").text("CLOSE");
-                    dropdownOpen = true;
-                }
-            });
             //HIDE AND SHOW SEARCH BAR. OPENING SEARCH BAR HIDES DROPDOWN MENU
 
             $(".search-btn").click(function () {
@@ -342,21 +342,29 @@ function stuffToDoAtVariousSizes() {
                 }
             });
 
-            //OPEN SUBMENUS AND TURN SVG ICONS AROUND. ONLY ONE SUBMENU CAN BE OPEN AT A TIME, OPENING ONE CLOSES OTHERS
-            $(".drop-btn").click(function (e) {
-                $(".drop-btn").not(e.target).siblings(".dropdown-content").addClass("max-height-zero");
-                $(".drop-btn").not(e.target).closest("div").find(".chevron").removeClass("swivel");
-                $(".drop-btn").not(e.target).removeClass("blue-background");
-                $(this).siblings(".dropdown-content").toggleClass("max-height-zero");
-                $(e.target).closest("div").find(".chevron").toggleClass("swivel");
-                $(e.target).toggleClass("blue-background");
-            });
+        } else if (window.innerWidth >= 559) {
+            $(".search-bar").appendTo("#fixed-header");
+            $(".search-bar").removeClass("display-none");
+            var searchBarShowing = true;
         }
     }
 }
 
+/*
+if (screen.width > 1000 ) {
 
-        $(document).ready(function() {
+
+    $(".drop-btn").hover(function(e) {
+        $(e.target).next(".dropdown-content").removeClass("max-height-zero");
+    });
+    $(".drop-btn").mouseleave(function(e) {
+        $(e.target).next(".dropdown-content").addClass("max-height-zero");
+    });
+}
+*/
+
+
+$(document).ready(function() {
            stuffToDoAtVariousSizes();
         });
 
@@ -366,7 +374,6 @@ function stuffToDoAtVariousSizes() {
 $(window).on('resize', function(e) {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(function() {
-      console.log("omg some stuff happened");
  stuffToDoAtVariousSizes();
   }, 250);
 });

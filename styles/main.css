@@ -233,6 +233,10 @@ nav {
     align-items: center;
 }
 
+@media (min-width: 1200px) {
+    .header-top {padding: 0; }
+}
+
 .header-top-wrapper {
     background-color: rgb(213, 214, 216);
 }
@@ -256,6 +260,7 @@ nav {
   /*  flex: 6; */
     background-color: rgb(13, 77, 141);
     width: 55%;
+    height: 59px;
 }
 
 
@@ -301,7 +306,7 @@ nav {
     justify-content: center;
     width: 25%;
     display: inline-table;
-    height: 53px;
+    height: 59px;
     vertical-align: top;
 }
 
@@ -316,6 +321,7 @@ nav {
 #fixed-header {
     width: 100%;
     margin: 0;
+    position: relative;
 }
 
 /* MEDIA QUERIES */
@@ -324,8 +330,8 @@ nav {
      padding-left: 22px;
     padding-right: 22px;
 }
-
 }
+
 @media (min-width: 1200px) {
     #fixed-header {
          padding: 0 calc(50% - 600px);
@@ -456,7 +462,7 @@ header a:hover, footer a:hover {
     height: 35px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 569px) {
     .basket {
         display: none;
     }
@@ -464,16 +470,31 @@ header a:hover, footer a:hover {
         display: none;
     }
     .search-bar {
-        display: block !important;
+        display: inline-block;
         position: initial !important;
+        width: 65%;
+        vertical-align: top;
     }
+
+
     .search-bar input {
         max-width: 300px;
         padding-left: 10px;
     }
+
+    .hamburger {
+        width: 35%;
+    }
+
+    .search-inner {
+        width: 40%;
+        position: absolute;
+        right: 0;
+        margin-left: auto;
+    }
 }
 
-@media(min-width: 1000px) {
+@media(min-width: 1200px) {
     .hamburger {
         display: none !important;
     }
@@ -503,11 +524,6 @@ header a:hover, footer a:hover {
     display: inline-table !important;
 }
 
-.search-bar {
-    max-width: 40% !important;
-    display: inline-block !important;
-   
-}
 
 
 
