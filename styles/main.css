@@ -199,18 +199,22 @@ button {
 }
 
 .main-menu {
-    position: fixed;
-    top: 53px;
+    position: absolute !important;
+}
+
+.search-bar {
+    position: absolute;
 }
 
 nav {
-    display: flex;
+   /* display: flex; */
 }
 
 .search-inner {
     font-size: 0;
     letter-spacing: 0;
     word-spacing: 0;
+    text-align: center;
 }
 
 .search-inner > * {
@@ -249,9 +253,13 @@ nav {
 }
 
 .hamburger {
-    flex: 6;
+  /*  flex: 6; */
     background-color: rgb(13, 77, 141);
+    width: 55%;
 }
+
+
+
 
 .btn-text {
     width: 112px;
@@ -261,9 +269,14 @@ nav {
 
 .search-btn {
     background-color: transparent !important;
-    flex: 2 1;
+   /* flex: 2 1; */
     padding: 0 !important;
     border-radius: 0;
+    width: 20%;
+}
+
+#fixed-header {
+    font-size: 0;
 }
 
 .search-bar {
@@ -274,16 +287,29 @@ nav {
 
 .magnify {
     width: 20px;
+    position: relative;
+    top: 3px;
 }
 
 
 .basket {
     background-color: rgb(192, 193, 195);
-    flex: 3 1;
+   /* flex: 3 1; */
     text-align: center;
-    display: flex;
+
     align-items: center;
     justify-content: center;
+    width: 25%;
+    display: inline-table;
+    height: 53px;
+    vertical-align: top;
+}
+
+.basket svg {
+    vertical-align: middle;
+    display: table-cell;
+    margin: auto;
+    height: 100%;
 }
 
 
@@ -399,8 +425,8 @@ header a:hover, footer a:hover {
 
 .search-inner {
     position: relative;
-    width: 80%;
-    margin-left: auto;
+    width: 90%;
+    margin: auto;
 }
 
 
@@ -596,7 +622,7 @@ footer nav a {
 }
 
 .search-bar input {
-    width: 90%;
+    width: 80%;
     border: 0;
 }
 
