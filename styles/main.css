@@ -193,6 +193,16 @@ button {
 
 /* STYLES FOR HEADER */
 
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+.main-menu {
+    position: absolute;
+    top: 53px;
+}
+
 nav {
     display: flex;
 }
@@ -276,27 +286,14 @@ nav {
     justify-content: center;
 }
 
-.basket svg {}
-
-.fixed #fixed-header {
-    position: fixed;
-    top: 0;
-}
-
-.fixed .main-menu {
-    position: fixed;
-}
 
 #fixed-header {
     width: 100%;
-    transform: scaleY(1);
-    visibility: visible;
-    /*transition: transform .5s;*/
-    transform-origin: top;
-    transition-timing-function: ease-in-out;
     margin: 0;
+    will-change: position;
 }
 
+/* MEDIA QUERIES */
 @media (min-width: 1000px) {
 #fixed-header {
      padding-left: 22px;
@@ -309,21 +306,7 @@ nav {
          padding: 0 calc(50% - 600px);
     }
 }
-
-#fixed-header * {
-    opacity: 1;
-    transition: opacity .7s;
-    transition-timing-function: ease-out;
-}
-
-.is-hidden #fixed-header {
-    transform: scaleY(0);
-    /*visibility: hidden;*/
-}
-
-.is-hidden #fixed-header * {
-    opacity: 0;
-}
+/* END OF MEDIA QUERIES */
 
 .chevron {
     width: 1em;
@@ -361,7 +344,7 @@ nav {
 }
 
 .main-menu {
-    position: absolute;
+
     margin: 0;
     will-change: transform;
    transform-origin: top;
