@@ -317,18 +317,13 @@ nav {
     height: 100%;
 }
 
-
-#fixed-header {
-    width: 100%;
-    margin: 0;
-    position: relative;
-}
-
 /* MEDIA QUERIES */
 @media (min-width: 1000px) {
 #fixed-header {
      padding-left: 22px;
     padding-right: 22px;
+        position: relative;
+
 }
 }
 
@@ -352,6 +347,7 @@ nav {
     margin-right: 8px;
     padding-left: 1px;
     padding-right: 1px;
+    background-color: transparent !important;
 }
 
 .swivel {
@@ -365,7 +361,6 @@ nav {
 .dropdown-content {
     height: auto;
     max-height: 400px;
-    transform: scaleY(1);
     overflow:hidden;
     transition-timing-function: cubic-bezier(1.000, 0.040, 0.215, 1.035);
 }
@@ -382,7 +377,7 @@ nav {
    overflow-y: scroll;
    /* 53 PIXELS IS THE HEIGHT OF THE FIXED HEADER!!!!!! IMPORTANT!!!! */
    max-height: calc(100vh - 53px);
-   padding-bottom: 44px;
+ /*  padding-bottom: 44px;*/
     z-index: 100;
 }
 
@@ -399,9 +394,11 @@ nav {
 }
 
 .dropdown-content {
-    transition: .4s;
+    transition: .5s;
     transform-origin: top;
+    will-change: max-height;
 }
+
 
 
 .dropdown-content a {
@@ -505,36 +502,18 @@ header a:hover, footer a:hover {
         transform: scaleY(1);
     }
     .main-menu {
-        display: table;
-        position: static;
         overflow: visible;
         max-width: 50%;
         padding-bottom: 0;
-        align-items: center;
     }
 
     .dropdown {
         display: table-cell;
     }
 
-    /* STYLES FOR IE 9 !!!!!!!!!!!!!! */
-
-
 .main-menu {
     display: inline-table !important;
 }
-
-
-
-
-/* END OF IE 9 styles !!!!!!!!!!!!!!!!!*/
-
-
-    @supports (display: flex) {
-         .main-menu {
-        display: flex;
-         }
-    }
 
     .drop-btn {
         background-color: transparent;
@@ -566,6 +545,15 @@ header a:hover, footer a:hover {
     }
 }
 
+@media(min-width: 1200px) {
+.dropdown:hover .dropdown-content {
+    max-height: 400px;
+}
+
+.main-menu {
+    position: static !important;
+}
+}
 
 /* STYLES FOR FOOTER */
 

@@ -63,7 +63,7 @@
             <div class="main-menu js-mainmenu-none closed">
 
                 <div class="dropdown">
-                    <a class="drop-btn">Pianos & Keyboards
+                    <a class="drop-btn" href="javascript:void(0)">Pianos & Keyboards
                         <svg  class='chevron' id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 8.6"><style>.st0{fill:#868686;}</style><path class="st0" d="M7.5 8.6L0 1.1 1.1 0l6.4 6.4L13.9 0 15 1.1 7.5 8.6z"/></svg>
                     </a>
 
@@ -244,7 +244,8 @@
 
 
 
-
+        var dropdownOpen = false;
+        var searchBarShowing = false;
 function stuffToDoAtVariousSizes() {
 
             if (window.innerWidth < 1000) {
@@ -255,8 +256,7 @@ function stuffToDoAtVariousSizes() {
 
         });
 
-        var dropdownOpen = false;
-        var searchBarShowing = false;
+
 
 
         //TOGGLE DROPDOWN. WHEN DROPDOWN IS OPENED SEARCH BAR IS HIDDEN
@@ -267,14 +267,8 @@ function stuffToDoAtVariousSizes() {
                 dropdownOpen = false;
                 $(".btn-text").text("INSTRUMENTS");
             }
-            else if (!dropdownOpen && searchBarShowing) {
-                $(".search-bar").addClass("display-none");
-                searchBarShowing = false;
-                $(".main-menu").removeClass("closed");
-                $(".btn-text").text("CLOSE");
-                dropdownOpen = true;
-            }
-            else if (!dropdownOpen && !searchBarShowing) {
+
+            else if (!dropdownOpen) {
                 $(".wrapper").addClass("blur-filter");
                 $(".main-menu").removeClass("closed");
                 $(".btn-text").text("CLOSE");
@@ -290,6 +284,8 @@ function stuffToDoAtVariousSizes() {
             $(e.target).siblings(".dropdown-content").toggleClass("max-height-zero");
             $(e.target).closest("div").find(".chevron").toggleClass("swivel");
             $(e.target).toggleClass("blue-background");
+
+
         });
 
         function scrollHeader() {
@@ -299,14 +295,16 @@ function stuffToDoAtVariousSizes() {
             var st = window.pageYOffset || document.documentElement.scrollTop;
             if (st > lastScrollTop) {
                 // downscroll code
-                $("#fixed-header").removeClass("sticky");
-
+                if (!dropdownOpen) {
+                    $("#fixed-header").removeClass("sticky");
+                }
 
             } else if (st < lastScrollTop) {
                 // upscroll code
+                if (!$("#fixed-header").hasClass("sticky")) {
                 $("#fixed-header").addClass("sticky");
                /* $(".main-menu").css("top",  ($("#fixed-header").offset().top - $(window).scrollTop()) + $("#fixed-header").height() + "px"); */
-
+                }
             }
             lastScrollTop = st;
 
@@ -347,21 +345,27 @@ function stuffToDoAtVariousSizes() {
             $(".search-bar").removeClass("display-none");
             var searchBarShowing = true;
         }
-    }
-}
-
-/*
-if (screen.width > 1000 ) {
+    }   /*  else if (window.innerWidth > 1000) {
+        $(".drop-btn").hover(function (e) {
+            $(e.target).siblings(".dropdown-content").toggleClass("max-height-zero");
+            $(e.target).toggleClass("blue-background");
+        });
+    } */
+    /*else if (window.innerWidth > 1000 ) {
 
 
     $(".drop-btn").hover(function(e) {
         $(e.target).next(".dropdown-content").removeClass("max-height-zero");
     });
-    $(".drop-btn").mouseleave(function(e) {
-        $(e.target).next(".dropdown-content").addClass("max-height-zero");
+    $(".dropdown-content").mouseleave(function(e) {
+        $(e.target).addClass("max-height-zero");
     });
+}*/
+
 }
-*/
+
+
+
 
 
 $(document).ready(function() {
