@@ -266,6 +266,7 @@ nav {
 
 .duet-logo {
     width: 115px;
+    height: 50px;
     display: inline-block;
 }
 
@@ -364,7 +365,11 @@ nav {
 }
 
 .max-height-zero {
-      max-height: 0px;
+   position: absolute;
+transform: scaleY(0);
+}
+.dropdown {
+    background-color: #e3ebf3;
 }
 
 .main-menu {
@@ -391,9 +396,9 @@ nav {
 }
 
 .dropdown-content {
-    transition: max-height .5s;
+    transition: transform .6s;
     transform-origin: top;
-    will-change: max-height;
+    transition-timing-function: ease-in-out;
 }
 
 
@@ -597,9 +602,10 @@ header a:hover, footer a:hover {
 
   .dropdown-content {
       position: absolute;
-      z-index: 200 !important;
-      transition: max-height .3s;
   }
+    .dropdown {
+        background-color: transparent;
+    }
 }
 
 @media(min-width: 1200px) {
@@ -617,6 +623,7 @@ header a:hover, footer a:hover {
     padding-bottom: 10px;
     background-color: white;
     z-index: 200;
+    transform: scaleY(1);
 }
 
     .dropdown:hover .drop-btn {
