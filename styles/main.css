@@ -198,6 +198,11 @@ button {
     top: 0;
 }
 
+.basket-large-screen {
+    display: none;
+}
+
+
 .main-menu {
     position: absolute !important;
 }
@@ -234,7 +239,7 @@ nav {
 }
 
 @media (min-width: 1200px) {
-    .header-top {padding: 0; }
+    .header-top {padding-left: 0; padding-right: 0;}
 }
 
 .header-top-wrapper {
@@ -380,7 +385,7 @@ nav {
 }
 
 .dropdown-content {
-    transition: .5s;
+    transition: max-height .5s;
     transform-origin: top;
     will-change: max-height;
 }
@@ -453,7 +458,7 @@ header a:hover, footer a:hover {
     color: rgb(14, 77, 141);
 }
 
-@media (min-width: 569px) {
+@media (min-width: 768px) {
     .basket {
         display: none;
     }
@@ -483,9 +488,7 @@ header a:hover, footer a:hover {
         right: 0;
         margin-left: auto;
     }
-}
 
-@media (min-width: 768px) {
     .strapline {
         font-size: 16px;
         max-width: none;
@@ -499,6 +502,18 @@ header a:hover, footer a:hover {
         width: 150px;
     }
 
+    .header-top {
+        padding-top: 15px;
+        padding-bottom: 5px;
+    }
+
+    .basket-large-screen {
+        display: inline-block;
+    }
+    a.basket-large-screen svg {
+        width: 66px;
+        height: 33px;
+    }
 }
 
 /* MEDIA QUERIES */
@@ -519,6 +534,11 @@ header a:hover, footer a:hover {
     }
     .chevron {
         display: none;
+    }
+
+    .drop-btn {
+        padding-top: 20px;
+        padding-bottom: 15px;
     }
 
     #fixed-header {
@@ -571,7 +591,7 @@ header a:hover, footer a:hover {
   .dropdown-content {
       position: absolute;
       z-index: 200 !important;
-      transition: .3s !important;
+      transition: max-height .3s;
   }
 }
 
@@ -592,8 +612,9 @@ header a:hover, footer a:hover {
     z-index: 200;
 }
 
-    .dropdown:hover drop-btn {
+    .dropdown:hover .drop-btn {
         border-bottom: solid rgb(19, 72, 135) 5px;
+        color: rgb(14, 77, 141);
     }
 
     .drop-btn {
