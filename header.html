@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="dropdown">
-                    <a class="drop-btn">Guitars
+                    <a class="drop-btn" href="javascript:void(0)">Guitars
                         <svg  class='chevron' id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 8.6"><style>.st0{fill:#868686;}</style><path class="st0" d="M7.5 8.6L0 1.1 1.1 0l6.4 6.4L13.9 0 15 1.1 7.5 8.6z"/></svg>
                     </a>
 
@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="dropdown">
-                    <a class="drop-btn">Strings
+                    <a class="drop-btn" href="javascript:void(0)">Strings
                         <svg  class='chevron' id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 8.6"><style>.st0{fill:#868686;}</style><path class="st0" d="M7.5 8.6L0 1.1 1.1 0l6.4 6.4L13.9 0 15 1.1 7.5 8.6z"/></svg>
                     </a>
 
@@ -115,7 +115,7 @@
                 </div>
 
                 <div class="dropdown">
-                    <a class="drop-btn">Woodwind
+                    <a class="drop-btn" href="javascript:void(0)">Woodwind
                         <svg  class='chevron' id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 8.6"><style>.st0{fill:#868686;}</style><path class="st0" d="M7.5 8.6L0 1.1 1.1 0l6.4 6.4L13.9 0 15 1.1 7.5 8.6z"/></svg>
                     </a>
 
@@ -130,7 +130,7 @@
                 </div>
 
                 <div class="dropdown">
-                    <a class="drop-btn">Brass
+                    <a class="drop-btn" href="javascript:void(0)">Brass
                         <svg  class='chevron' id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 8.6"><style>.st0{fill:#868686;}</style><path class="st0" d="M7.5 8.6L0 1.1 1.1 0l6.4 6.4L13.9 0 15 1.1 7.5 8.6z"/></svg>
                     </a>
 
@@ -148,7 +148,7 @@
                 </div>
 
                 <div class="dropdown">
-                    <a class="drop-btn">Drums & Percussion
+                    <a class="drop-btn" href="javascript:void(0)">Drums & Percussion
                         <svg  class='chevron' id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 8.6"><style>.st0{fill:#868686;}</style><path class="st0" d="M7.5 8.6L0 1.1 1.1 0l6.4 6.4L13.9 0 15 1.1 7.5 8.6z"/></svg>
                     </a>
 
@@ -261,7 +261,7 @@ function stuffToDoAtVariousSizes() {
 
         });
 
-                if (window.innerWidth >= 559) {
+                if (window.innerWidth >= 768) {
 
                     //TOGGLE DROPDOWN. Doesn't effect searchbar
                     $(".hamburger").click(function () {
@@ -288,29 +288,8 @@ function stuffToDoAtVariousSizes() {
                 $(this).siblings(".dropdown-content").toggleClass("max-height-zero");
                 $(this).closest("div").find(".chevron").toggleClass("swivel");
                 $(this).toggleClass("blue-background");
-                console.log(this);
             });
-              /*   var dropbtn = document.querySelectorAll(".drop-btn");
-                dropbtn.forEach(function(element) {element.addEventListener('click', function(e) {
-                    if (e.target.nextElementSibling.nextElementSibling.style.display === 'none') {
-                        dropbtn.forEach(function(elem){
-                            elem.nextElementSibling.nextElementSibling.style.display = 'none';
-                            elem.nextElementSibling.style.transform = 'initial';
-                            elem.parentElement.style.paddingBottom = '.5rem';
-                        });
-                        e.target.nextElementSibling.nextElementSibling.style.display = 'block';
-                        e.target.nextElementSibling.style.transform = 'rotate(90deg)';
-                        e.target.parentElement.style.paddingBottom = 0;
 
-                    }
-
-                    else {
-                        e.target.nextElementSibling.nextElementSibling.style.display = 'none';
-                        e.target.nextElementSibling.style.transform = 'initial';
-                        e.target.parentElement.style.paddingBottom = '.5rem';
-                    }
-                });
-                }); */
 
         function scrollHeader() {
 
@@ -338,7 +317,7 @@ function stuffToDoAtVariousSizes() {
         window.addEventListener("scroll", scrollHeader);
 
 
-        if (window.innerWidth < 559) {
+        if (window.innerWidth < 768) {
 
             //HIDE AND SHOW SEARCH BAR. OPENING SEARCH BAR HIDES DROPDOWN MENU
 
@@ -388,28 +367,12 @@ function stuffToDoAtVariousSizes() {
                 }
             });
 
-        } else if (window.innerWidth >= 559) {
+        } else if (window.innerWidth >= 768) {
             $(".search-bar").appendTo("#fixed-header");
             $(".search-bar").removeClass("display-none");
             var searchBarShowing = true;
         }
-    }   /*  else if (window.innerWidth > 1000) {
-        $(".drop-btn").hover(function (e) {
-            $(e.target).siblings(".dropdown-content").toggleClass("max-height-zero");
-            $(e.target).toggleClass("blue-background");
-        });
-    } */
-    /*else if (window.innerWidth > 1000 ) {
-
-
-    $(".drop-btn").hover(function(e) {
-        $(e.target).next(".dropdown-content").removeClass("max-height-zero");
-    });
-    $(".dropdown-content").mouseleave(function(e) {
-        $(e.target).addClass("max-height-zero");
-    });
-}*/
-
+    }
 }
 
 
