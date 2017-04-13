@@ -646,12 +646,18 @@ header a:hover, footer a:hover {
 
 /* STYLES FOR FOOTER */
 
+
+
 footer {
     margin-top: 50px;
     margin-bottom: 20px;
     clear: both;
 }
 
+footer svg {
+    width: 50px;
+    height: 50px;
+}
 
 footer ul a {
     line-height: 0;
@@ -660,7 +666,6 @@ footer ul a {
 .small-links>* {
     display: block;
     margin-top: 10px;
-    color: black;
 }
 
 .face {
@@ -689,24 +694,16 @@ footer nav a {
     border-bottom: white solid 1px;
 }
 
-.social-media {
-    margin: auto;
-    width: 175px;
-    margin-top: 20px;
-    text-align: justify;
-    line-height: 0;
+
+
+.fbook:hover > .st0 {
+    fill: rgb(104, 136, 212);
+}
+.tweeter:hover > .st0 {
+    fill: rgb(112, 209, 251);
 }
 
-.social-media:after {
-    content: " ";
-    display: inline-block;
-    width: 100%;
-}
 
-.facebook,
-.twitter {
-    width: 70px;
-}
 
 .search-bar {
     padding-top: 12px;
@@ -727,14 +724,37 @@ a img {
 }
 
 @media (max-width: 767px) {
+
+    nav {
+        background-color: transparent;
+    }
     .face,
     .twit {
-        display: none;
+        background-color: white;
+        width: 70px !important;
+        text-align: center;
+        margin: auto;
+        display: inline-table;
     }
-    .footer-nav, .footer-nav li {
-    width: 100%;
-}
 
+    .face > a, .twit > a {
+        display: table-cell;
+        margin: auto;
+    }
+
+    .footer-nav {
+        width: 100%;
+        text-align: center;
+    }
+    .footer-nav li:not(.face):not(.twit) {
+    width: 100%;
+        text-align: center;
+        background-color: rgb(236, 236, 236);
+}
+    footer svg {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -778,15 +798,21 @@ footer nav a {
         display: inline-block;
         padding-right: 15px;
     }
-    .none {
-        display: none;
-    }
 }
 
 /* MESSAGE FOR OLD IE*/
+
 .message {
     position: fixed;
+    margin: auto;
+    left: 50%;
+    margin-left: -300px;
+    top: 0;
+    max-width: 600px;
+    padding: 10px 20px;
+    margin-top: 20px;
     background-color: white;
+    border: solid;
 }
 .none {
     display: none;
