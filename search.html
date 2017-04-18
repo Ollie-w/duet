@@ -5,43 +5,74 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="search.css">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic,900' rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="category.css">
     <title>Document</title>
 </head>
 <body>
 
 <div class="wrapper">
 
-    <h1>Grand pianos for hire</h1>
-    <p class="category-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias consequuntur, cupiditate, dolor earum eos hic in inventore itaque neque obcaecati optio quam quia quibusdam ratione recusandae repellendus reprehenderit sit tempora voluptas. Accusantium amet asperiores atque iure nam ratione! At doloribus est modi optio possimus sunt, ullam veritatis voluptates voluptatum.</p>
+<h1>Search results for 'Yamaha'</h1>
 
-    <div class="sidenote">
-        <h2>A new concept in instrument hire</h2>
-        <a href="">Read about our unique rental/ownership plans</a>
-    </div>
+<div class="top-bar">
+    <button>Refine results</button>
 
-   
+    <label for="sort-by">Sort by</label> 
+    <select name="sort-by" id="sort-by">
+        <option value="">Relevance</option>
+        <option value="">Price</option>
+    </select>
 
-        <div class="grid">
-            <div class="product-item">
-                <img class="product-image" src="images-dynamic/home-spotlight-piano.jpg" alt="">
-                <h2>Lorem ipsum drumkit</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, libero?</p>
-                <p>HIRE FOR ONLY</p>
-                <p>£23.45 P/M</p>
-            </div>
+    <div class="pagination">
+<button type="button" class="back-to-beginning"></button>
+<button type="button" class="back-one"></button>
+Page 1 of 21
+<button class="forward" type="button"></button>
+</div><!-- End of pagination -->
+</div><!-- End of top bar -->
 
-            <div class="product-item">
-                <img  class="product-image" src="images-dynamic/home-spotlight-piano.jpg" alt="">
-                <h2>Lorem ipsum drumkit</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, libero?</p>
-                <p>HIRE FOR ONLY</p>
-                <p>£23.45 P/M</p>
-            </div>
+ <div class="sidebar refine-results">
+            <h2>REFINE RESULTS</h2>
 
+            <h3>Pianos & Keyboards (67)</h3>
+            <ul>
+                <li>Upright Pianos</li>
+                <li>Grand Pianos</li>
+                <li>Electronic Keyboards</li>
+            </ul>
+
+            <h3>Guitars (12)</h3>
+
+            <ul>
+                <li>Classical Guitars (7)</li>
+                <li>Electric Guitars (2)</li>
+                <li>Bass Guitars (2)</li>
+                <li>Guitar Accessories (1)</li>
+            </ul>
+
+            <h3>Strings (26)</h3>
+
+            <ul>
+                <li>Violins (12)</li>
+                <li>Cellos (5)</li>
+                <li>Double Bass (7)</li>
+                <li>Strings Accessories (4)</li>
+            </ul>
+
+            <h3>Drums & Percussion (8)</h3>
+            <ul>
+               <li>Drums Kits (7)</li>
+               <li>World Percussion (1)</li>
+            </ul>
+
+        </div> <!-- END OF SIDEBAR -->
+
+
+ <div class="grid">
+            
             <div class="product-item">
                 <img  class="product-image" src="images-dynamic/home-spotlight-piano.jpg" alt="">
                 <h2>Lorem ipsum drumkit</h2>
@@ -123,11 +154,18 @@
             </div>
 
         </div> <!-- end of GRID! -->
-    
+
+<div class="bottom-bar">Showing items 1-20 of 237
+<div class="pagination">
+<button type="button" class="back-to-beginning"></button>
+<button type="button" class="back-one"></button>
+Page 1 of 21
+<button class="forward" type="button"></button>
+</div><!-- End of pagination -->
+</div><!-- end of Bottom bar -->
 
 
-
-</div>
+</div> <!-- END OF WRAPPER -->
 
 </body>
 </html>

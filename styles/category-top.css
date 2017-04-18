@@ -1,0 +1,283 @@
+.category-title {
+    font-size: 35px;
+}
+
+.category-description, .sidenote {
+    display: none;
+}
+
+.category-description {
+    line-height: 1.25;
+}
+
+.sidebar {
+    display: none;
+}
+
+.sidebar li {
+    margin-top: 10px;
+}
+
+.product-item {
+    border-bottom: solid 3px rgb(245, 245, 245);
+    padding: 20px 30px;
+    position: relative;
+    text-align: center; 
+    margin: auto;
+}
+
+.product-item:nth-child(3n+1):nth-last-child(-n+3),
+  .product-item:nth-child(3n+1):nth-last-child(-n+3) ~ .product-item {
+    border-bottom: none;
+}
+
+
+.product-image {
+    max-width: 100%;
+}
+
+.font-size-zero {
+    font-size: 0;
+}
+
+.font-size-zero > * {
+    font-size: initial;
+}
+
+.bottom-bar {
+    margin-left: auto;
+    margin-top: 10px;
+}
+
+.bottom-bar button {
+    background-color: #F0F0F0;
+    height: 50px;
+    width: 50px;
+}
+
+.bottom-bar button:hover {
+    background-color: #E5ECF5;
+}
+
+.pagination {
+    display: table;
+}
+
+.pagination > * {
+    display: table-cell;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.bottom-bar {
+    text-align: center;
+}
+
+@supports (display: flex) {
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    .page-count {
+        width: 100%;
+         order: 1;
+    margin-top: 15px;
+    }
+}
+
+.page-count {
+    padding-left: 25px; /* margin is not working on this element for some reason */
+    padding-right: 20px;
+}
+
+.item-count {
+    line-height: 50px;
+}
+
+.price {
+    font-family: 'bitter', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.hire-for-only {
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 15px;
+    letter-spacing: .5px;
+}
+
+.item-description {
+    margin: 0;
+    line-height: 1.15;
+}
+.price-container {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.item-title {
+    margin-bottom: 10px;
+}
+
+/* MEDIA QUERIES  */
+
+@media (min-width: 767px) {
+
+    .bottom-bar {
+        text-align: left;
+    }
+
+.pagination {
+      float: right;
+      align-items: center;
+      margin-top: 0;
+}
+
+.page-count {
+    width: auto;
+    margin-top: 0;
+    order: 0;
+}
+
+    .sidebar {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+
+    .category-description, .sidenote {
+    display: block;
+    }
+
+    .category-description {
+        max-width: 580px;
+    }
+
+    .top-of-page {
+        position: relative;
+    }
+
+    .sidenote {
+        position: absolute;
+        right: 0;
+        top: 0;
+        max-width: 280px;
+        background-color: #E5ECF5;
+        border-left: solid 8px #164E8C;
+        border-radius: 7px;
+        padding: 15px 10px;
+        text-align: center;
+    }
+
+    .sidebar > h2 {
+        color: black;
+        font-weight: 600;
+    }
+
+    .sidenote > h2 {
+        color: #4c4c4c;
+        font-weight: 600;
+    }
+
+    .sidebar h2 {
+    margin-bottom: 28px;
+    }
+
+    .sidenote > * {
+    margin: 0;
+  }
+
+    .product-item:not(:first-of-type):before {
+    content: "";
+    position: absolute;
+    top: 5%;
+    left: 0;
+    height: 90%;
+    width: 3px;
+    background-color: rgb(245, 245, 245);
+}
+
+.product-item {
+    text-align: left;
+    vertical-align: top;
+}
+
+  .sidebar {
+        width: 33%;
+    }
+
+    .grid, .bottom-bar {
+         width: 66%;
+    }
+
+    /* FALLBACK LAYOUT GOES FIRST! */
+.grid {
+    display: inline-block;
+}
+
+.product-item {
+        width: 49%;
+    display: inline-block;
+}
+/* END OF FALLBACK CODE @ 767px */
+
+    @supports (display: grid) {
+        .grid {
+            display: inline-grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .product-item {
+        width: 100%;
+}
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+/* FALLBACK LAYOUT GOES FIRST! */
+
+.product-item {
+        width: 32%;
+}
+/* END OF FALLBACK CODE @ 1200px*/    
+
+.sidenote {
+ bottom: 0;
+ top: initial;
+ max-width: initial;
+ padding-left: 30px;
+ padding-right: 30px;    
+}
+
+.category-description {
+   max-width: 50%;
+    }
+
+     .sidebar {
+        width: 24%;
+    }
+
+    .grid, .bottom-bar {
+     width: 75%;
+    }
+
+    @supports (display: grid) {
+        .grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .product-item {
+        width: 100%;
+    }
+    }
+   
+}
