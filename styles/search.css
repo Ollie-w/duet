@@ -20,8 +20,9 @@
 }
 
 .search-title {
-    font-size: 26px;
+    font-size: 19px;
     text-align: center;
+    color: black;
 }
 
 .number-of-items {
@@ -56,6 +57,10 @@ body .refine-results-btn:hover {
     background-color: #E5ECF5;
 }
 
+.refine-results-btn, .select-container {
+display: inline-block;
+}
+
 .item-count {
     display: block;
     text-align: center;
@@ -72,7 +77,6 @@ body .refine-results-btn:hover {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 25px;
-
 }
 
 .category-description {
@@ -212,10 +216,36 @@ body .refine-results-btn:hover {
     font-size: 21px;
 }
 
+.refine-results-btn {
+height: 45px;
+}
+
 
 /* MEDIA QUERIES  */
 
+@media (max-width: 767px) {
+
+    .select-container {
+        float: right;
+    }
+
+    .item-count {
+    margin-top: 20px;
+}
+}
+
+@media (min-width: 767px) and (max-width: 1200px) {
+    .product-item:nth-child(2n+1):nth-last-child(-n+2),
+    .product-item:nth-child(2n+1):nth-last-child(-n+2) ~ .product-item {
+        border-bottom: none;
+    }
+}
+
 @media (min-width: 767px) {
+
+    .refine-results-btn {
+        display: none;
+    }
 
     .sort-container {
         margin-bottom: 0;
@@ -225,7 +255,7 @@ body .refine-results-btn:hover {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 40px;
+        margin-top: 20px;
     }
 
     .top-bar > *:not(.pagination) {
@@ -252,7 +282,7 @@ body .refine-results-btn:hover {
     }
 
     .search-title {
-        font-size: 31px;
+        font-size: 25px;
     }
 
     .bottom-bar, .search-title, .number-of-items {
@@ -286,14 +316,20 @@ body .refine-results-btn:hover {
     }
 
 
-    .sidebar>h2 {
+    .sidebar h2 {
         color: black;
         font-weight: 600;
-    }
-
-    .sidebar h2 {
+        font-size: 20px;
         margin-bottom: 28px;
     }
+
+    .sidebar h3 {
+    font-size: 19px;
+}
+
+    .sidebar a {
+    font-size: 17px;
+}
 
     .product-item:before {
         content: "";
@@ -318,10 +354,7 @@ body .refine-results-btn:hover {
         width: 66%;
     }
 
-    .product-item:nth-child(2n+1):nth-last-child(-n+2),
-    .product-item:nth-child(2n+1):nth-last-child(-n+2)~.product-item {
-        border-bottom: none;
-    }
+
 
     /* FALLBACK LAYOUT GOES FIRST! */
     .grid {
@@ -360,9 +393,9 @@ body .refine-results-btn:hover {
     }
 
     .top-bar {
-        max-width: 70%;
+        max-width: 60%;
         margin-left: auto;
-        margin-top: 50px;
+        margin-top: 30px;
     }
 
     .sidebar {
