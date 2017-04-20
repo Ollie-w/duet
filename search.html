@@ -40,9 +40,12 @@
 </div><!-- End of top bar -->
 
  <div class="sidebar refine-results">
-            <h2>REFINE RESULTS</h2>
+            <h2 class="sidebar-title">REFINE RESULTS</h2>
+     <svg class="close-sidebar" stroke="black" stroke-width="4" viewbox="0 0 40 40">
+         <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+     </svg>
 
-     <a href=""><h3>Pianos & Keyboards (67)</h3></a>
+     <h3><a href="">Pianos & Keyboards (67)</a></h3>
             <ul>
                 <li><a href="">Upright Pianos (33)</a></li>
                 <li><a href="">Grand Pianos (22)</a></li>
@@ -206,6 +209,22 @@
 
 
 </div> <!-- END OF WRAPPER -->
+
+<script>
+   var refineBtn = document.querySelector(".refine-results-btn");
+   var sidebar = document.querySelector(".sidebar");
+   var sidebarTitle = document.querySelector(".sidebar-title");
+   refineBtn.addEventListener("click", function() {
+       sidebar.classList.add("sidebar-showing");
+       sidebarTitle.textContent = "Refine by category";
+   })
+
+    var closeSidebarBtn = document.querySelector(".close-sidebar");
+   closeSidebarBtn.addEventListener("click", function() {
+       sidebar.classList.remove("sidebar-showing");
+       sidebarTitle.textContent = "REFINE RESULTS";
+   })
+</script>
 
 </body>
 </html>

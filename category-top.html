@@ -52,7 +52,11 @@
 
    
         <div class="sidebar">
-            <h2>PIANOS & KEYBOARDS</h2>
+            <h2 class="sidebar-title">PIANOS & KEYBOARDS</h2>
+            <svg class="close-sidebar" stroke="black" stroke-width="4" viewbox="0 0 40 40">
+                <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+            </svg>
+
             <ul>
                 <li><a href="#">Upright Pianos</a></li>
                 <li><a href="#">Grand Pianos</a></li>
@@ -93,6 +97,9 @@
                 <p class="item-description">Lorem ipsum dolor sit amet blah some long description goes here</p>
                 <p class="hire-for-only">HIRE FOR ONLY</p>
                 <div class="price-container"><span class="price">£23.45</span> P/M</div>
+                <small class="variations-available">Variations available</small>
+                <img class="size-logo" src="http://www.chamberlainmusic.com/temp/duet-testing/images-static/size-variation.png" alt="Available in multiple sizes">
+                <img class="color-logo" src="http://www.chamberlainmusic.com/temp/duet-testing/images-static/colour-variation.png" alt="Available in multiple colours">
             </div>
 
             <div class="product-item">
@@ -103,6 +110,9 @@
                 <p class="item-description">Lorem ipsum dolor sit amet blah</p>
                 <p class="hire-for-only">HIRE FOR ONLY</p>
                 <div class="price-container"><span class="price">£23.45</span> P/M</div>
+                <small class="variations-available">Variations available</small>
+                <img class="size-logo" src="http://www.chamberlainmusic.com/temp/duet-testing/images-static/size-variation.png" alt="Available in multiple sizes">
+                <img class="color-logo" src="http://www.chamberlainmusic.com/temp/duet-testing/images-static/colour-variation.png" alt="Available in multiple colours">
             </div>
 
             <div class="product-item">
@@ -133,6 +143,9 @@
                 <p class="item-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean m</p>
                 <p class="hire-for-only">HIRE FOR ONLY</p>
                 <div class="price-container"><span class="price">£23.45</span> P/M</div>
+                <small class="variations-available">Variations available</small>
+                <img class="size-logo" src="http://www.chamberlainmusic.com/temp/duet-testing/images-static/size-variation.png" alt="Available in multiple sizes">
+                <img class="color-logo" src="http://www.chamberlainmusic.com/temp/duet-testing/images-static/colour-variation.png" alt="Available in multiple colours">
             </div>
 
             <div class="product-item">
@@ -210,5 +223,22 @@
 
 </div>
 
+<script>
+
+    var refineBtn = document.querySelector(".sub-categories-btn");
+    var sidebar = document.querySelector(".sidebar");
+    var sidebarTitle = document.querySelector(".sidebar-title");
+    var titleText = sidebarTitle.textContent;
+    refineBtn.addEventListener("click", function() {
+        sidebar.classList.add("sidebar-showing");
+        sidebarTitle.textContent = "Sub-categories";
+    })
+
+    var closeSidebarBtn = document.querySelector(".close-sidebar");
+    closeSidebarBtn.addEventListener("click", function() {
+        sidebar.classList.remove("sidebar-showing");
+        sidebarTitle.textContent = titleText;
+    })
+</script>
 </body>
 </html>

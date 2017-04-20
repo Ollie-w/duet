@@ -1,3 +1,7 @@
+body {
+    position: relative;
+}
+
 .category-title {
     font-size: 26px;
     text-align: center;
@@ -58,12 +62,21 @@ body .sub-categories-btn:hover {
     line-height: 1.25;
 }
 
-.sidebar {
-    display: none;
-}
-
 .sidebar li {
     margin-top: 10px;
+}
+
+.sidebar a {
+    color: black;
+    font-size: 17px;
+}
+
+
+.sidebar>h2 {
+    color: black;
+}
+.sidebar ul {
+    list-style-type: none;
 }
 
 .product-item {
@@ -210,7 +223,71 @@ body .sub-categories-btn:hover {
 
 /* MEDIA QUERIES  */
 
+@media (min-width: 767px) and (max-width: 1200px) {
+    .product-item:nth-child(2n+1):nth-last-child(-n+2),
+    .product-item:nth-child(2n+1):nth-last-child(-n+2) ~ .product-item {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .breadcrumbs {
+        visibility: hidden; /* for some weird reason setting this to display: none caused problems for my sidebar slideout on mobile! */
+    }
+
+    .close-sidebar {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        right: 10px;
+        top: 14px;
+    }
+
+    .sidebar {
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: white;
+        width: 100%;
+        margin: 0 !important;
+        transform: translate3d(-100vw, 0, 0);
+        z-index: 10;
+        transition: transform .3s cubic-bezier(0, .52, 0, 1);
+    }
+    .sidebar-showing {
+        transform: translate3d(0, 0, 0);
+    }
+
+    .sidebar-showing h2 {
+        font-family: 'Source Sans Pro', arial, san-serif;
+        font-size: 19px;
+    }
+
+    .sidebar ul {
+        padding-top: 20px;
+    }
+    .sidebar h2 {
+        margin: 0;
+        background-color: rgb(230, 237, 245);
+        border-bottom: solid gray 1px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .sidebar ul, .sidebar h3, .sidebar h2 {
+        padding-left: 20px;
+    }
+}
+
 @media (min-width: 767px) {
+
+    .close-sidebar {
+        display: none;
+    }
 
     .sort-container {
         margin-bottom: 0;
@@ -239,6 +316,7 @@ body .sub-categories-btn:hover {
         line-height: 50px;
         order: -1;
         text-align: left;
+        display: inline-block;
     }
 
     .top-bar .pagination {
@@ -271,13 +349,7 @@ body .sub-categories-btn:hover {
         vertical-align: top;
     }
 
-    .sidebar a {
-        color: black;
-    }
 
-    .sidebar ul {
-        list-style-type: none;
-    }
     .category-description,
     .sidenote {
         display: block;
@@ -305,17 +377,19 @@ body .sub-categories-btn:hover {
     }
 
     .sidebar>h2 {
-        color: black;
         font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 28px;
     }
+
+
+
     .sidenote>h2 {
         color: #4c4c4c;
         font-weight: 600;
         margin-bottom: 10px;
     }
-    .sidebar h2 {
-        margin-bottom: 28px;
-    }
+
     .sidenote>* {
         margin: 0;
     }
@@ -342,19 +416,15 @@ body .sub-categories-btn:hover {
         width: 66%;
     }
 
-    .product-item:nth-child(2n+1):nth-last-child(-n+2),
-    .product-item:nth-child(2n+1):nth-last-child(-n+2)~.product-item {
-        border-bottom: none;
-    }
-
     /* FALLBACK LAYOUT GOES FIRST! */
     .grid {
         display: inline-block;
+        font-size: 0;
     }
     .product-item {
         width: 49%;
         display: inline-block;
-        min-height: 532px
+        min-height: 615.51px
     }
     /* END OF FALLBACK CODE @ 767px */
     @supports (display: grid) {
@@ -383,7 +453,7 @@ body .sub-categories-btn:hover {
     }
 
     .top-bar {
-        max-width: 70%;
+        max-width: 60%;
         margin-left: auto;
         margin-top: 50px;
     }
