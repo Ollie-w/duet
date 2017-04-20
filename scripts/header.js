@@ -2,41 +2,26 @@ var dropdownOpen = false;
 var searchBarShowing = false;
 function stuffToDoAtVariousSizes() {
 
-    if (window.innerWidth < 1000) {
-
-        function scrollHeader() {
-
-
-
-            var st = window.pageYOffset || document.documentElement.scrollTop;
-            if (st > lastScrollTop) {
-                // downscroll code
-                if (!dropdownOpen) {
-                    $("#fixed-header").removeClass("sticky");
-                }
-
-            } else if (st < lastScrollTop) {
-                // upscroll code
-                if (!$("#fixed-header").hasClass("sticky")) {
-                    $("#fixed-header").addClass("sticky");
-                    /* $(".main-menu").css("top",  ($("#fixed-header").offset().top - $(window).scrollTop()) + $("#fixed-header").height() + "px"); */
-                }
-            }
-            lastScrollTop = st;
-
-        };
-
-        var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        window.addEventListener("scroll", _.throttle(scrollHeader, 300));
+    if (window.matchMedia("(max-width: 1200px)").matches) {
 
         //HAMBURGER ANIMATION
         $(".hamburger").click(function () {
             $(this).toggleClass("is-active");
 
         });
+        //OPEN SUBMENUS AND TURN SVG ICONS AROUND. ONLY ONE SUBMENU CAN BE OPEN AT A TIME, OPENING ONE CLOSES OTHERS
+        $(".drop-btn").click(function (e) {
+            $(".drop-btn").not(this).removeClass("blue-background");
+            if ($(this).hasClass("blue-background")) {
+                $(this).removeClass("blue-background");
+            }
+            else {
+                $(this).addClass("blue-background");
+            }
+        });
+    }
 
-        if (window.innerWidth >= 768) {
-
+    if (window.matchMedia("(min-width: 768px) and (max-width: 1200px)").matches)  {
             //TOGGLE DROPDOWN. Doesn't effect searchbar
             $(".hamburger").click(function () {
                 if (dropdownOpen) {
@@ -54,18 +39,8 @@ function stuffToDoAtVariousSizes() {
                 }
             });
         }
-        //OPEN SUBMENUS AND TURN SVG ICONS AROUND. ONLY ONE SUBMENU CAN BE OPEN AT A TIME, OPENING ONE CLOSES OTHERS
-        $(".drop-btn").click(function(e) {
-            $(".drop-btn").not(this).siblings(".dropdown-content").addClass("max-height-zero");
-            $(".drop-btn").not(this).closest("div").find(".chevron").removeClass("swivel");
-            $(".drop-btn").not(this).removeClass("blue-background");
-            $(this).siblings(".dropdown-content").toggleClass("max-height-zero");
-            $(this).closest("div").find(".chevron").toggleClass("swivel");
-            $(this).toggleClass("blue-background");
-        });
 
-
-        if (window.innerWidth < 768) {
+        if (window.matchMedia("(max-width: 768px)").matches) {
 
             //HIDE AND SHOW SEARCH BAR. OPENING SEARCH BAR HIDES DROPDOWN MENU
 
@@ -115,12 +90,12 @@ function stuffToDoAtVariousSizes() {
                 }
             });
 
-        } else if (window.innerWidth >= 768) {
+        }
+        if (window.matchMedia("(min-width: 768px)").matches) {
             $(".search-bar").appendTo("#fixed-header");
             $(".search-bar").removeClass("display-none");
             var searchBarShowing = true;
         }
-    }
 }
 
 
