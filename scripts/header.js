@@ -1,17 +1,25 @@
 var dropdownOpen = false;
 var searchBarShowing = false;
+
+var $hamburger =  $(".hamburger");
+var $dropbtn = $(".drop-btn");
+var $wrapper =  $(".wrapper");
+var $mainmenu = $(".main-menu");
+var $searchbar = $(".search-bar");
+var $btntext = $(".btn-text");
+
+
 function stuffToDoAtVariousSizes() {
 
     if (window.matchMedia("(max-width: 1200px)").matches) {
 
         //HAMBURGER ANIMATION
-        $(".hamburger").click(function () {
+        $hamburger.off("click.hamburger").on("click.hamburger",function () {
             $(this).toggleClass("is-active");
-
         });
         //OPEN SUBMENUS AND TURN SVG ICONS AROUND. ONLY ONE SUBMENU CAN BE OPEN AT A TIME, OPENING ONE CLOSES OTHERS
-        $(".drop-btn").click(function (e) {
-            $(".drop-btn").not(this).removeClass("blue-background");
+       $dropbtn.off("click.submenu").on("click.submenu", function (e) {
+            $dropbtn.not(this).removeClass("blue-background");
             if ($(this).hasClass("blue-background")) {
                 $(this).removeClass("blue-background");
             }
@@ -19,82 +27,84 @@ function stuffToDoAtVariousSizes() {
                 $(this).addClass("blue-background");
             }
         });
-    }
+    };
+       
+    
 
     if (window.matchMedia("(min-width: 768px) and (max-width: 1200px)").matches)  {
             //TOGGLE DROPDOWN. Doesn't effect searchbar
-            $(".hamburger").click(function () {
+            $hamburger.off("click.dropdown").on("click.dropdown", function () {
                 if (dropdownOpen) {
-                    $(".wrapper").removeClass("blur-filter");
-                    $(".main-menu").addClass("closed");
+                    $wrapper.removeClass("blur-filter");
+                   $mainmenu.addClass("closed");
                     dropdownOpen = false;
-                    $(".btn-text").text("INSTRUMENTS");
+                    $btntext.text("INSTRUMENTS");
                 }
 
                 else if (!dropdownOpen) {
-                    $(".wrapper").addClass("blur-filter");
-                    $(".main-menu").removeClass("closed");
-                    $(".btn-text").text("CLOSE");
+                   $wrapper.addClass("blur-filter");
+                   $mainmenu.removeClass("closed");
+                    $btntext.text("CLOSE");
                     dropdownOpen = true;
                 }
-            });
+            })
         }
 
         if (window.matchMedia("(max-width: 768px)").matches) {
 
             //HIDE AND SHOW SEARCH BAR. OPENING SEARCH BAR HIDES DROPDOWN MENU
 
-            $(".search-btn").click(function () {
+            $(".search-btn").off("click.search").on("click.search", function () {
                 if (searchBarShowing) {
-                    $(".search-bar").addClass("display-none");
-                    $(".wrapper").removeClass("blur-filter");
+                   $searchbar.addClass("display-none");
+                    $wrapper.removeClass("blur-filter");
                     searchBarShowing = false;
                 }
 
                 else if (dropdownOpen && !searchBarShowing) {
-                    $(".hamburger").removeClass("is-active");
-                    $(".btn-text").text("INSTRUMENTS");
-                    $(".main-menu").addClass("closed");
+                   $hamburger.removeClass("is-active");
+                    $btntext.text("INSTRUMENTS");
+                   $mainmenu.addClass("closed");
                     dropdownOpen = false;
-                    $(".search-bar").removeClass("display-none");
+                    $searchbar.removeClass("display-none");
                     searchBarShowing = true;
                 }
                 else if (!dropdownOpen && !searchBarShowing) {
-                    $(".wrapper").addClass("blur-filter");
-                    $(".search-bar").removeClass("display-none");
+                    $wrapper.addClass("blur-filter");
+                    $searchbar.removeClass("display-none");
                     searchBarShowing = true;
                 }
             });
 
             //TOGGLE DROPDOWN. WHEN DROPDOWN IS OPENED SEARCH BAR IS HIDDEN
 
-            $(".hamburger").click(function () {
+            $hamburger.off("click.toggledrop").on("click.toggledrop", function () {
                 if (dropdownOpen) {
-                    $(".wrapper").removeClass("blur-filter");
-                    $(".main-menu").addClass("closed");
+                    $wrapper.removeClass("blur-filter");
+                    $mainmenu.addClass("closed");
                     dropdownOpen = false;
-                    $(".btn-text").text("INSTRUMENTS");
+                   $btntext.text("INSTRUMENTS");
                 }
                 else if (!dropdownOpen && searchBarShowing) {
-                    $(".search-bar").addClass("display-none");
+                   $searchbar.addClass("display-none");
                     searchBarShowing = false;
-                    $(".main-menu").removeClass("closed");
-                    $(".btn-text").text("CLOSE");
+                    $mainmenu.removeClass("closed");
+                    $btntext.text("CLOSE");
                     dropdownOpen = true;
                 }
                 else if (!dropdownOpen && !searchBarShowing) {
-                    $(".wrapper").addClass("blur-filter");
-                    $(".main-menu").removeClass("closed");
-                    $(".btn-text").text("CLOSE");
+                   $wrapper.addClass("blur-filter");
+                    $mainmenu.removeClass("closed");
+                    $btntext.text("CLOSE");
                     dropdownOpen = true;
                 }
             });
 
         }
         if (window.matchMedia("(min-width: 768px)").matches) {
-            $(".search-bar").appendTo("#fixed-header");
-            $(".search-bar").removeClass("display-none");
-            var searchBarShowing = true;
+        var $desktopsearch = $searchbar.clone();
+            $desktopsearch.removeClass("display-none");
+            $desktopsearch.appendTo("#fixed-header");
         }
 }
 
@@ -116,6 +126,7 @@ $(window).on('resize', function(e) {
     }, 250);
 });
 
+/* code for displaying IE message */
 $(".message").click(function() {
     this.css("display", "none");
 });

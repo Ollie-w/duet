@@ -234,6 +234,15 @@ button {
 
 /* STYLES FOR HEADER */
 
+.magnify-in-bar {
+    position: absolute !important;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .sticky {
     position: sticky;
     top: 0;
@@ -253,10 +262,6 @@ button {
 
 nav {
     /* display: flex; */
-}
-
-#fixed-header {
-    position: relative;
 }
 
 .search-inner {
@@ -280,6 +285,14 @@ nav {
     max-width: 1200px;
     margin: auto;
     align-items: center;
+}
+
+
+@media (max-width: 767px) {
+    #fixed-header {
+       position: sticky;
+       top: 0;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -315,6 +328,7 @@ nav {
     background-color: rgb(13, 77, 141);
     width: 55%;
     height: 59px;
+    vertical-align: top;
 }
 
 .btn-text {
@@ -324,11 +338,12 @@ nav {
 }
 
 .search-btn {
-    background-color: transparent !important;
+    background-color: rgb(236, 236, 236) !important;
     /* flex: 2 1; */
     padding: 0 !important;
-    border-radius: 0;
+    border-radius: 0 !important;
     width: 20%;
+    height: 59px;
 }
 
 #fixed-header {
@@ -344,7 +359,6 @@ nav {
 .magnify {
     width: 20px;
     position: relative;
-    top: 3px;
 }
 
 .basket {
@@ -393,16 +407,17 @@ nav {
 
 .dropdown-content {
     height: auto;
-    max-height: 400px;
+    max-height: 0;
     overflow: hidden;
     transition-timing-function: cubic-bezier(1.000, 0.040, 0.215, 1.035);
     position: absolute;
-    transform: scaleY(0);
+   /* transform: scaleY(0);*/
 }
 
 .blue-background ~ .dropdown-content {
     position: static;
-    transform: scaleY(1);
+    /*transform: scaleY(1);*/
+     max-height: 400px;
 }
 
 .dropdown {
@@ -432,7 +447,8 @@ nav {
 }
 
 .dropdown-content {
-    transition: transform .6s;
+    /*transition: transform .6s;*/
+    transition: max-height .6s;
     transform-origin: top;
     transition-timing-function: ease-in-out;
 }
