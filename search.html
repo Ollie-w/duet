@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles-dist/main-dist.css">
-    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles-dist/search-dist.css">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,600italic,700,700italic,900' rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet">
     <title>Document</title>
@@ -39,12 +39,15 @@
     </div><!-- End of pagination -->
 </div><!-- End of top bar -->
 
- <div class="sidebar refine-results">
-            <h2 class="sidebar-title">REFINE RESULTS</h2>
+<div class="font-size-zero">
+     <div class="sidebar refine-results">
+        <div class="sidebar-title-container">
+                <h2 class="sidebar-title">REFINE RESULTS</h2>
      <svg class="close-sidebar" stroke="black" stroke-width="4" viewbox="0 0 40 40">
          <path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
      </svg>
 
+        </div>
      <h3><a href="">Pianos & Keyboards (67)</a></h3>
             <ul>
                 <li><a href="">Upright Pianos (33)</a></li>
@@ -76,10 +79,13 @@
                <li><a href="">World Percussion (1)</a></li>
             </ul>
 
+            <h3><a href="">All results (237)</a></h3>
+
         </div> <!-- END OF SIDEBAR -->
 
 
- <div class="grid">
+ <div class="grid-container">
+     <div class="grid">
 
      <div class="product-item">
          <a href="#">
@@ -197,6 +203,8 @@
      </div>
 
         </div> <!-- end of GRID! -->
+ </div> <!-- end of grid container -->
+</div>
 
     <div class="bottom-bar clearfix"><span class="item-count">Showing items 1-10 of 237</span>
         <div class="pagination">
@@ -216,13 +224,15 @@
    var sidebarTitle = document.querySelector(".sidebar-title");
    refineBtn.addEventListener("click", function() {
        sidebar.classList.add("sidebar-showing");
-       sidebarTitle.textContent = "Refine by category";
+       sidebarTitle.textContent = "Refine results by category";
+       document.querySelector("body").style.position = "fixed";
    })
 
     var closeSidebarBtn = document.querySelector(".close-sidebar");
    closeSidebarBtn.addEventListener("click", function() {
        sidebar.classList.remove("sidebar-showing");
        sidebarTitle.textContent = "REFINE RESULTS";
+       document.querySelector("body").style.position = "relative";
    })
 </script>
 

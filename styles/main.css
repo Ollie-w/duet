@@ -115,12 +115,22 @@ button:not(.hamburger) {
 
 .wrapper {
     max-width: 1200px;
-    margin: 0 auto;
+   
     padding-top: 0;
+    margin-left: 22px;
+    margin-right: 22px;
+    /*
+     margin: 0 auto;
     padding-left: 22px;
-    padding-right: 22px;
+    padding-right: 22px; */
     box-sizing: content-box;
     background-color: white;
+}
+
+@media (min-width: 1200px) {
+ .wrapper {
+     margin: 0 auto;
+ }
 }
 
 
@@ -229,6 +239,257 @@ input,
 textarea,
 button {
     max-width: 768px;
+}
+
+.sidenote {
+    display: none;
+}
+
+.pagination button {
+    background-color: #F0F0F0;
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.pagination button:hover {
+    background-color: #E5ECF5;
+}
+
+.pagination button:hover .st0 {
+    fill: black;
+}
+
+.pagination {
+    display: table;
+}
+
+.pagination>* {
+    display: table-cell;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+
+.pagination button > svg {
+    width: 16px;
+    height: 16px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.category-title {
+    font-size: 23px;
+    text-align: center;
+     letter-spacing: .2px;
+}
+
+.number-of-items {
+    text-align: center;
+    font-size: 17px;
+}
+
+.product-item {
+    border-bottom: solid 2px rgb(236, 236, 236);
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+    margin: auto;
+}
+
+.price-container:not(.price) {
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.price {
+    font-family: 'bitter', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.hire-for-only {
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 14px;
+    letter-spacing: .5px;
+}
+
+.variations-available {
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
+}
+
+.color-logo, .size-logo {
+    height: 36px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+.item-description {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 16px;
+}
+
+.price-container {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+.item-title {
+    margin-bottom: 5px;
+    margin-top: 0;
+   font-size: 19px;
+}
+
+.blog-banner {
+    display: none;
+}
+
+
+.breadcrumbs, .breadcrumbs a {
+    font-size: 14px;
+    color: black;
+}
+
+.breadcrumbs a:hover {
+text-decoration: underline;
+}
+
+.category-description {
+    line-height: 1.25;
+    font-size: 17px;
+    text-align: center;
+}
+
+@media (min-width: 767px) {
+
+.category-title, .number-of-items, .category-description {
+        text-align: left;
+    }
+
+.product-image:hover ~ .item-title, .item-title:hover {
+    text-decoration: underline;
+    }
+
+    .product-image {
+        margin-top: 13px;
+    }
+
+    .color-logo, .size-logo {
+        padding-left: 0;
+        padding-right: 20px;
+    }
+
+.sidenote {
+        display: block;
+    }
+.sidenote {
+        position: absolute;
+        right: 0;
+        top: 7px;
+        max-width: 240px;
+        background-color: #E5ECF5;
+        border-left: solid 8px #164E8C;
+        border-radius: 7px;
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .sidenote p {
+        line-height: 1;
+        font-size: 16px;
+    }
+
+    .sidenote>h2 {
+        color: #4c4c4c;
+        font-weight: 600;
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+
+    .sidenote>* {
+        margin: 0;
+    }
+    .product-item:before {
+        content: "";
+        position: absolute;
+        top: 5%;
+        right: 0;
+        height: 90%;
+        width: 2px;
+        background-color: rgb(236, 236, 236);
+    }
+    .product-item {
+        text-align: left;
+        vertical-align: top;
+        padding: 20px 30px;
+    }
+
+    .blog-banner {
+        display: block;
+        background-image: url('../images-static/blog-banner.jpg');
+        margin: auto;
+        min-height: 100px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .banner-inner {
+        width: 55%;
+        position: absolute;
+        right: 30px;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .banner-text {
+        margin: 0;
+        font-size: 15px;
+    }
+    .banner-title {
+        font-weight: normal;
+        margin-top: 0;
+        margin-bottom: 2px;
+        font-size: 23px;
+        color: black;
+    }
+    .banner-link {
+        width: fit-content;
+    }
+}
+
+@media (min-width: 1200px) {
+.sidenote-container {
+        position: relative;
+    }
+
+       .sidenote {
+        top: 0;
+        max-width: initial;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+        .banner-title {
+       font-size: 24px;
+    }
+
+    .banner-text {
+        font-size: 16px;
+    }
 }
 
 

@@ -1,10 +1,5 @@
-.category-title {
-    font-size: 26px;
-    text-align: center;
-}
-
-.number-of-items {
-    text-align: center;
+.wrapper {
+    overflow: hidden; /* in order to cut off overflowing bits of the grid on the left and right side */
 }
 
 .bar {
@@ -18,7 +13,7 @@
     display: none;
 }
 
-.sidenote, .top-bar  {
+.top-bar  {
     display: none;
 }
 
@@ -28,17 +23,10 @@
     line-height: 1;
 }
 
-.category-description {
-    line-height: 1.25;
-}
 
-.product-item {
-    border-bottom: solid 3px rgb(245, 245, 245);
-    padding: 20px 0;
-    position: relative;
-    text-align: center;
-    margin: auto;
-}
+
+
+
 
 .product-image {
     max-width: 100%;
@@ -61,58 +49,17 @@
 
 
 
-.price {
-    font-family: 'bitter', sans-serif;
-    font-weight: bold;
-    font-size: 23px;
-}
-
-.hire-for-only {
-    font-weight: 600;
-    margin-top: 10px;
-    margin-bottom: 0;
-    font-size: 15px;
-    letter-spacing: .5px;
-}
-
-.variations-available {
-    margin-top: 10px;
-    display: block;
-}
-
-.color-logo, .size-logo {
-    height: 40px;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-top: 10px;
-}
-
-.item-description {
-    margin: 0;
-    line-height: 1.15;
-}
-
-.price-container {
-    margin: 0;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.item-title {
-    margin-bottom: 5px;
-    margin-top: 0;
-    font-size: 21px;
-}
-
-.blog-banner {
-    display: none;
-}
-
-
 /* MEDIA QUERIES  */
+
+@media (max-width: 767px) {
+    .breadcrumbs {
+        display: none;
+    }
+}
 
 @media (min-width: 767px) {
 
+    
     .top-page-number, .bottom-showing-items, .showing-items {
         display: inline-block;
     }
@@ -121,10 +68,6 @@
         position: absolute;
         right: 0;
         top: 0;
-    }
-
-    .sidenote {
-        display: block;
     }
 
     .sort-container {
@@ -139,6 +82,9 @@
         margin-top: 15px;
     }
 
+    
+
+
     .item-count {
         line-height: 50px;
         order: -1;
@@ -147,10 +93,10 @@
     }
 
     .category-title {
-        font-size: 31px;
+        font-size: 25px;
     }
 
-    .bar, .category-title, .number-of-items {
+    .bar {
         text-align: left;
     }
 
@@ -166,78 +112,10 @@
     .top-of-page {
         position: relative;
     }
-    .sidenote {
-        position: absolute;
-        right: 0;
-        top: 7px;
-        max-width: 240px;
-        background-color: #E5ECF5;
-        border-left: solid 8px #164E8C;
-        border-radius: 7px;
-        padding: 15px 0;
-        text-align: center;
-    }
-
-    .sidenote a {
-        line-height: 1;
-    }
-
-    .sidenote>h2 {
-        color: #4c4c4c;
-        font-weight: 600;
-        margin-bottom: 10px;
-    }
-
-    .sidenote>* {
-        margin: 0;
-    }
-    .product-item:before {
-        content: "";
-        position: absolute;
-        top: 5%;
-        left: 0;
-        height: 90%;
-        width: 3px;
-        background-color: rgb(245, 245, 245);
-    }
-    .product-item {
-        text-align: left;
-        vertical-align: top;
-        padding: 20px 30px;
-    }
-
-    .blog-banner {
-        display: block;
-        background-image: url('../images-static/blog-banner.jpg');
-        margin: auto;
-        min-height: 100px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: relative;
-        margin-top: 50px;
-        margin-bottom: 50px;
-    }
-    .banner-inner {
-        width: 55%;
-        position: absolute;
-        right: 30px;
-        text-align: center;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .banner-text {
-        margin: 0;
-        font-size: 15px;
-    }
-    .banner-title {
-        font-weight: normal;
-        margin-top: 0;
-        margin-bottom: 2px;
-        font-size: 23px;
-        color: black;
-    }
-    .banner-link {
-        width: fit-content;
+    
+    .grid {
+    margin-left: -30px; /* these margins are to account for the fact that the first item in each row shouldn't have any padding-left and the last item in each row shouldn't have any padding-right */
+    margin-right: -30px;
     }
 
     /* FALLBACK LAYOUT GOES FIRST! */
@@ -270,9 +148,9 @@
         border-bottom: none;
     }
 
-    .product-item:nth-child(3n+1):before {
+    /*.product-item:nth-child(3n+1):before {
         display: none;
-    }
+    }*/
 
 }
 
@@ -282,11 +160,13 @@
         width: 24%;
     }
     /* END OF FALLBACK CODE @ 1200px*/
+    
 
+    
 
-    .product-item:nth-child(4n+1):before {
+    /*.product-item:nth-child(4n+1):before {
         display: none;
-    }
+    }*/
 
     .product-item:nth-child(4n+1):nth-last-child(-n+4),
     .product-item:nth-child(4n+1):nth-last-child(-n+4)~.product-item {
@@ -297,13 +177,7 @@
         width: 75%;
     }
 
-    .sidenote {
-        bottom: 0;
-        top: initial;
-        max-width: initial;
-        padding-left: 30px;
-        padding-right: 30px;
-    }
+ 
     .category-description {
         max-width: 50%;
     }
@@ -311,6 +185,8 @@
     .category-title {
         max-width: 100%;
     }
+
+
 
     @supports (display: grid) {
         .grid {
