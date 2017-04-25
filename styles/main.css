@@ -20,7 +20,7 @@ option[disabled] {
 select {
     background-color: white;
     width: 120px;
-    padding: 5px 35px 5px 5px;
+    padding: 5px 0px 5px 9px;
     height: 36px;
     border: solid rgb(200, 200, 200) 1px;
     -webkit-appearance: none;
@@ -32,7 +32,7 @@ select {
     appearance: none;
     background-image: url(../images-static/select_icon.svg);
     background-repeat: no-repeat;
-    background-position: right 0px top 4px;
+    background-position: right 0px top 5px;
 }
 
 
@@ -246,18 +246,26 @@ button {
 }
 
 .pagination button {
-    background-color: #F0F0F0;
+   background-color: #E5ECF5;
     height: 40px;
     width: 40px;
     border-radius: 4px;
     position: relative;
 }
 
-.pagination button:hover {
-    background-color: #E5ECF5;
+.pagination button:disabled {
+    background-color: #F0F0F0;
 }
 
-.pagination button:hover .st0 {
+.pagination button:hover {
+    background-color: rgb(195, 210, 226) ;
+}
+
+.pagination button:disabled:hover {
+     background-color: #F0F0F0;
+}
+
+.pagination button:not(:disabled) .st0 {
     fill: black;
 }
 
@@ -373,7 +381,46 @@ text-decoration: underline;
     text-align: center;
 }
 
+.top-bar select {
+    width: 114px;
+    height: 45px;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.sidebar-title-container {
+    position: sticky;
+    top: 0;
+}
+
+    .select-container label {
+        margin-right: 5px;
+    }
+
+
+
 @media (min-width: 767px) {
+
+    .bar, .top-bar, .bottom-bar {
+    font-size: 14px;
+}
+
+
+    .sidebar li a {
+    font-size: 15px;
+}
+
+    .select-container label {
+        margin-right: 10px;
+    }
+
+        .sidebar h2 {
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 28px;
+    }
 
 .category-title, .number-of-items, .category-description {
         text-align: left;
@@ -470,6 +517,14 @@ text-decoration: underline;
     .banner-link {
         width: fit-content;
     }
+
+
+.top-bar select {
+    width: 154px;
+    padding-left: 11px;
+    height: 36px;
+    background-position: right 0px top 2px;
+}
 }
 
 @media (min-width: 1200px) {
@@ -692,6 +747,7 @@ nav {
     overflow-y: scroll;
     /* 53 PIXELS IS THE HEIGHT OF THE FIXED HEADER!!!!!! IMPORTANT!!!! */
     max-height: calc(100vh - 53px);
+     max-height: calc(100vh - 112px); /* width of sticky top bar */
     /*  padding-bottom: 44px;*/
     z-index: 100;
 }

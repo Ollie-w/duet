@@ -1,0 +1,52 @@
+
+
+.gray-bg {
+    background-color: transparent;
+}
+
+.minimum-rental-period, .top {
+    margin-right: initial; /* WANT THEM TO APPEAR ON THE RIGHT RATHER THAN BE CENTRED */
+}
+
+.hero-pic {
+    display: none;
+}    
+
+.top-bg-img {
+    background-image: url(../images-static/home-hero-1200.jpg);
+    background-repeat: no-repeat;
+    min-height: 454px;
+    background-position: center;
+     position: relative;
+     margin-top: 20px;
+}
+
+.top {
+    background: none;
+    right: 40px;
+ position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#popular-title-large {
+    display: block;
+    margin: auto;
+}
+
+#popular-title-mobile {
+    display: none;
+}
+
+.no-mobile {
+    display: initial;
+}
+
+.flex-table {
+    display: table;
+    width: 100%;
+}
+
+.flex-table > div {
+    display: table-cell;
+}

@@ -1,5 +1,5 @@
 var dropdownOpen = false;
-var searchBarShowing = false;
+
 
 var $hamburger =  $(".hamburger");
 var $dropbtn = $(".drop-btn");
@@ -52,6 +52,10 @@ function stuffToDoAtVariousSizes() {
 
         if (window.matchMedia("(max-width: 768px)").matches) {
 
+               $searchbar.addClass("display-none");
+               var searchBarShowing = false;
+
+
             //HIDE AND SHOW SEARCH BAR. OPENING SEARCH BAR HIDES DROPDOWN MENU
 
             $(".search-btn").off("click.search").on("click.search", function () {
@@ -94,7 +98,7 @@ function stuffToDoAtVariousSizes() {
                 }
                 else if (!dropdownOpen && !searchBarShowing) {
                    $wrapper.addClass("blur-filter");
-                    $mainmenu.removeClass("closed");
+                    $mainmenu.removeClass("closed");       
                     $btntext.text("CLOSE");
                     dropdownOpen = true;
                 }
@@ -102,9 +106,7 @@ function stuffToDoAtVariousSizes() {
 
         }
         if (window.matchMedia("(min-width: 768px)").matches) {
-        var $desktopsearch = $searchbar.clone();
-            $desktopsearch.removeClass("display-none");
-            $desktopsearch.appendTo("#fixed-header");
+            $searchbar.removeClass("display-none");
         }
 }
 
