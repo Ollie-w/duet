@@ -1,22 +1,16 @@
-var dropdownOpen = false;
-
-
 var $hamburger =  $(".hamburger");
 var $dropbtn = $(".drop-btn");
 var $wrapper =  $(".wrapper");
 var $mainmenu = $(".main-menu");
 var $searchbar = $(".search-bar");
 var $btntext = $(".btn-text");
+var $body =  $("body");
 
 
 function stuffToDoAtVariousSizes() {
 
     if (window.matchMedia("(max-width: 1200px)").matches) {
 
-        //HAMBURGER ANIMATION
-        $hamburger.off("click.hamburger").on("click.hamburger",function () {
-            $(this).toggleClass("is-active");
-        });
         //OPEN SUBMENUS AND TURN SVG ICONS AROUND. ONLY ONE SUBMENU CAN BE OPEN AT A TIME, OPENING ONE CLOSES OTHERS
        $dropbtn.off("click.submenu").on("click.submenu", function (e) {
             $dropbtn.not(this).removeClass("blue-background");
@@ -27,99 +21,44 @@ function stuffToDoAtVariousSizes() {
                 $(this).addClass("blue-background");
             }
         });
-    };
-       
-    
 
-    if (window.matchMedia("(min-width: 768px) and (max-width: 1200px)").matches)  {
             //TOGGLE DROPDOWN. Doesn't effect searchbar
             $hamburger.off("click.dropdown").on("click.dropdown", function () {
-                if (dropdownOpen) {
-                    $wrapper.removeClass("blur-filter");
-                   $mainmenu.addClass("closed");
-                    dropdownOpen = false;
-                    $btntext.text("INSTRUMENTS");
-                }
-
-                else if (!dropdownOpen) {
-                   $wrapper.addClass("blur-filter");
-                   $mainmenu.removeClass("closed");
-                    $btntext.text("CLOSE");
-                    dropdownOpen = true;
-                }
-            })
+                   $mainmenu.removeClass("closed");  
+                 $body.css("overflow", "hidden");        
+            });
+             $("#close-menu").off("click.close").on("click.close", function() {
+                     $mainmenu.addClass("closed");
+                      $body.css("overflow", "initial");  
+             })
         }
 
         if (window.matchMedia("(max-width: 768px)").matches) {
-
+            /* start by hiding the searchbar in case the user has resized their window down from a higher size */
                $searchbar.addClass("display-none");
-               var searchBarShowing = false;
 
-
-            //HIDE AND SHOW SEARCH BAR. OPENING SEARCH BAR HIDES DROPDOWN MENU
+            //HIDE AND SHOW SEARCH BAR. 
 
             $(".search-btn").off("click.search").on("click.search", function () {
-                if (searchBarShowing) {
-                   $searchbar.addClass("display-none");
-                    $wrapper.removeClass("blur-filter");
-                    searchBarShowing = false;
-                }
-
-                else if (dropdownOpen && !searchBarShowing) {
-                   $hamburger.removeClass("is-active");
-                    $btntext.text("INSTRUMENTS");
-                   $mainmenu.addClass("closed");
-                    dropdownOpen = false;
-                    $searchbar.removeClass("display-none");
-                    searchBarShowing = true;
-                }
-                else if (!dropdownOpen && !searchBarShowing) {
-                    $wrapper.addClass("blur-filter");
-                    $searchbar.removeClass("display-none");
-                    searchBarShowing = true;
-                }
-            });
-
-            //TOGGLE DROPDOWN. WHEN DROPDOWN IS OPENED SEARCH BAR IS HIDDEN
-
-            $hamburger.off("click.toggledrop").on("click.toggledrop", function () {
-                if (dropdownOpen) {
-                    $wrapper.removeClass("blur-filter");
-                    $mainmenu.addClass("closed");
-                    dropdownOpen = false;
-                   $btntext.text("INSTRUMENTS");
-                }
-                else if (!dropdownOpen && searchBarShowing) {
-                   $searchbar.addClass("display-none");
-                    searchBarShowing = false;
-                    $mainmenu.removeClass("closed");
-                    $btntext.text("CLOSE");
-                    dropdownOpen = true;
-                }
-                else if (!dropdownOpen && !searchBarShowing) {
-                   $wrapper.addClass("blur-filter");
-                    $mainmenu.removeClass("closed");       
-                    $btntext.text("CLOSE");
-                    dropdownOpen = true;
-                }
-            });
-
+                   $searchbar.toggleClass("display-none");
+                });
         }
-        if (window.matchMedia("(min-width: 768px)").matches) {
-            $searchbar.removeClass("display-none");
-        }
+ if (window.matchMedia("(min-width: 1200px)").matches) {
+        $dropbtn.off("click.submenu");
+         $dropbtn.removeClass("blue-background");
+           $mainmenu.addClass("closed");
+           $("body").css("overflow", "initial");  
+ }
 }
 
 
-
-
+/* trigger the above function on page load */
 
 $(document).ready(function() {
     stuffToDoAtVariousSizes();
 });
 
-
-
+/* trigger the above function when user adjusts their screen size */
 var resizeTimer;
 $(window).on('resize', function(e) {
     clearTimeout(resizeTimer);
