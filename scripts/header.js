@@ -25,17 +25,21 @@ function stuffToDoAtVariousSizes() {
             //TOGGLE DROPDOWN. Doesn't effect searchbar
             $hamburger.off("click.dropdown").on("click.dropdown", function () {
                    $mainmenu.removeClass("closed");  
-                 $body.css("overflow", "hidden");        
+                 $body.css("overflow", "hidden"); 
             });
              $("#close-menu").off("click.close").on("click.close", function() {
                      $mainmenu.addClass("closed");
-                      $body.css("overflow", "initial");  
+                      $body.css("overflow", "initial");
+                      $dropbtn.each(function() {
+                          if ($(this).hasClass("blue-background")) {
+                              $(this).removeClass("blue-background");
+                          }
+                      })
              })
         }
 
         if (window.matchMedia("(max-width: 768px)").matches) {
-            /* start by hiding the searchbar in case the user has resized their window down from a higher size */
-               $searchbar.addClass("display-none");
+
 
             //HIDE AND SHOW SEARCH BAR. 
 
@@ -71,3 +75,7 @@ $(window).on('resize', function(e) {
 $(".message").click(function() {
     this.css("display", "none");
 });
+
+$(".clear-search").on("click", function() {
+    $(".search-inner input").value = "";
+})
