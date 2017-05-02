@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700|Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link rel="stylesheet" href="styles-dist/main-dist.css">
+    <link rel="stylesheet" href="styles-dist/instrument-page-dist.css">
+     <link rel="stylesheet" href="styles-dist/flickity.css">
+    <link rel="stylesheet" href="scripts/dist/photoswipe.css"> 
+    <link rel="stylesheet" href="scripts/dist/default-skin/default-skin.css"> 
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="wrapper">
+
+<div class="breadcrumbs">
+    <a href="#">HOME</a> > <a href="#">STRINGS</a> > <a href="#">VIOLINS</a> > <a href="#">STENTOR GRADUATE VIOLIN OUTFIT WITH CASE AND BOW</a>
+  </div><!--end of breadcrumbs -->
+
+<div class="left-column">
+    
+   <div class="product_title">
+      <h1>Stentor Graduate violin outfit with case and box</h1>
+      <p>High quality violin designed for the advancing student</p>
+
+      <div class="smallprint">
+      <span>Product code:</span> STN1550A
+      <span class='manufacturer'>Manufacturer:</span> <a href="#">Stentor Music Co</a>
+      </div>
+</div><!-- end of product title -->
+
+   <div class="main-carousel">
+<div class="carousel-cell" ><img src="images-dynamic/violin_image_1.jpg" alt=""></div>
+<div class="carousel-cell"><img  src="images-dynamic/violin_image_2.jpg" alt=""></div>
+<div class="carousel-cell"><img src="images-dynamic/violin_image_3.jpg" alt=""></div>
+</div>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div><!--end of left-column -->
+
+
+<form class="instrument-form float_right" action="get">
+<div class="instrument-options rentalform__select-wrapper">
+  <div class="instrument-options__number">1</div> <h3>INSTRUMENT OPTIONS</h3>
+  <div class="instrument-options__selections">
+    <div>
+      <label for="selectsize">Size:</label>
+      <select required class="js-instrument-opt" name="selectsize" id="selectsize"><option disabled selected value="">Select size</option>
+         <option value="1/2">1/2</option>
+         <option value="1/4">1/4</option>
+      </select>
+      <p class='error-message js-visibility-hidden'>Please select instrument options</p>
+    </div>
+
+    <div class="rentalform__select-wrapper color-options__selections">
+      <label for="selectcolor">Colour:</label>
+      <select required class="js-instrument-opt" name="selectcolor" id="selectcolor"><option disabled selected value="">Select colour</option>
+         <option value="pink">pink</option>
+         <option value="fuschia">fuschia</option>
+         <option value="orange">orange</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="rentalform__select-wrapper clearfix js-noclickme rentalplan">
+  <div class="instrument-options__number">2</div><h3>RENTAL PLAN</h3> <br>
+  <select required name="selectrentalplan" id="selectrentalplan"><option disabled selected value="">Select rental plan</option>
+   <option value="3.33">£3.33</option>
+   <option value="4.00">£4</option>
+</select>
+<span class="selectplanmessage">Please select your rental plan</span>
+
+<div class="planinfo">
+<p>Plans can be cancelled anytime after 3 months</p>
+<p>Complete the plan and the instrument is yours to keep!</p>
+<a id="js-more-info-btn" href="#">more info</a>
+</div>
+</div>
+
+<div class="rentalform__select-wrapper js-noclickme accessories seconderrormsg">
+  <div class="instrument-options__number">3</div><h3>RECOMMENDED ACCESSORIES</h3>
+</div>
+
+  <div class="instrument-form__priceinfo">Rent for as little as £3.33 per month</div>
+  <button type="submit" class="instrument-form__btn js-noclickme seconderrormsg">ADD TO BASKET</button>
+  <div class="amend-message amend-message-disabled">You can amend your rental plan before checking out</div>
+</form>
+
+
+<div class="left-column">
+      <div class="features">
+      <h2>FEATURES</h2>
+      <ul>
+          <li><span>Solid, carved tonewood body with an attractive shaded satin finish.</span></li>
+          <li><span>Fitted with ebony fingerboard and synthetic gut strings.</span></li>
+          <li><span>Supplied with a bow (with natural white horse hair and mounted ebony frog), a stick of rosin and a traditional lightweight case.</span></li>
+          <li><span>Available in 4/4, 3/4, 1/2, 1/4 and 1/8 size.</span></li>
+          <li><span>FREE instrument set-up by our on-site luthier.</span></li>
+      </ul>
+  </div> <!--  end of features -->
+
+  
+<div  class="tab_box">
+<div class="tab">
+<a href="javascript:void(0)" class="tablinks active" onclick="openTab('description')">Details</a>
+<a href="javascript:void(0)" class="tablinks" onclick="openTab('moreinfo')">More info</a>
+<a href="javascript:void(0)" class="tablinks" onclick="openTab('size')">Size</a>
+</div>
+<div id="description" class="tabcontent">
+<p> The Stentor Graduate has been designed to act as a step-up instrument from the immensely popular Stentor Student 2 violin, and would be suitable for an experienced player who travels frequently with their violin. </p>
+<p>As you can imagin with a name like 'Graduate', this violin has been crafted with the advancing student in mind. The body is hand-carved from solid tonewoods, with additional maple back and ribs to give it a superior tonal quality. This violin includes the standard Stentor ebony fittings which dutifully compliment the Graduates varnished satin finish and synthetic gut strings</p>
+<p>The Stentor Graduate is supplied with a box (with natural white horse hair and mounted ebony frog), a stuck of rosin and a traditional lightweight case with enough space for 2 bows.</p>
+<p>Each violin is individually set up by our in house technician which ensures that your violin will reach you in a perfect and playable condition straight from the box.</p>
+</div>
+<div id="moreinfo" class="tabcontent">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, ullam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed ducimus neque dolores, labore earum facilis voluptatem recusandae praesentium libero. Fugit, reprehenderit, quod! Laboriosam distinctio, odit, vel veniam at quibusdam id recusandae magnam qui. Sit similique accusamus voluptatem, nam animi eveniet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, recusandae! </p>
+</div>
+<div id="size" class="tabcontent">
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione natus consectetur ex mollitia laudantium ea animi deleniti perferendis quae eum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus reiciendis maiores magnam laboriosam quam, recusandae sit aliquam perferendis assumenda, suscipit qui iure rerum maxime exercitationem distinctio nobis veniam voluptate neque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit deserunt error voluptate necessitatibus a. Corrupti, ut nisi nobis fugiat hic! </p>
+</div>
+</div><!-- end of tab_box --> 
+
+</div><!-- end of left-column -->
+
+<div class="alternatives">
+  <h4>Alternatives</h4>
+<div class="item">
+  <img src="images-dynamic/alternative_1.jpg" alt="">
+  <div class="item_text">
+      <h5>Stentor Conservatoire 4/4 size violin outfit with case and bow</h5>
+  <p>Intermediate hand-carved student outfit</p>
+  <p>£5.95 for 60 months</p>
+  </div>
+  </div>
+  <div class="item">
+  <img src="images-dynamic/alternative_2.jpg" alt="">
+  <div class="item_text">
+      <h5>Stentor Conservatoire 4/4 size violin outfit with case and bow</h5>
+  <p>Intermediate hand-carved student outfit</p>
+  <p>£5.95 for 60 months</p>
+  </div>
+</div>
+</div><!-- end of alternatives -->
+
+</div><!-- end of wrapper div -->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous"></script>
+              <script src="scripts/flickity.js"></script>
+<script src="scripts/initialize-flickity.js"></script>
+<script src="scripts/dist/photoswipe.js"></script>
+<script src="scripts/dist/photoswipe-ui-default.js"></script>
+<script src="scripts/combine.js"></script>
+              <script src="scripts/instrument-page.js"></script>
+</body>
+</html>
