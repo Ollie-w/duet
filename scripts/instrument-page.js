@@ -13,10 +13,7 @@ function addAccessory() {
   accessoriesTotal = accessoriesTotal - Number(this.value);
   var total = parseFloat(selectPlan.value) + accessoriesTotal;
   var total2decimals = total.toFixed(2);
-  $price.html(`
-<div class="priceinfo__top"><span class="priceinfo__largetext">Your plan:</span> £${total2decimals} per month for 36 months</div>
-<div class="priceinfo__btm">First installment of £${total2decimals} payable on checkout</div>
-`);
+$price.html(`<div class="priceinfo__top"><span class="priceinfo__largetext">YOUR PLAN</span> £${total2decimals} per month for 36 months</div> <div class="priceinfo__btm"> <p>Plans can be cancelled penalty-free anytime after 3 months</p> <p>Complete the plan and the instrument is yours to keep</p> <p>First installment of £${total2decimals} payable on checkout</p></div>`);
   }
  else if (!$(this).hasClass('is-on-plan-already')) {
    $(this).addClass('is-on-plan-already');
@@ -25,8 +22,7 @@ function addAccessory() {
   accessoriesTotal = accessoriesTotal + Number(this.value);
   var total = parseFloat(selectPlan.value) + accessoriesTotal;
   var total2decimals = total.toFixed(2);
-  $price.html(`<div class="priceinfo__top"><span class="priceinfo__largetext">Your plan:</span> £${total2decimals} per month for 36 months</div>
-<div class="priceinfo__btm">First installment of £${total2decimals} payable on checkout</div>`);
+ $price.html(`<div class="priceinfo__top"><span class="priceinfo__largetext">YOUR PLAN:</span> £${total2decimals} per month for 36 months</div> <div class="priceinfo__btm"> <p>Plans can be cancelled penalty-free anytime after 3 months</p> <p>Complete the plan and the instrument is yours to keep</p> <p>First installment of £${total2decimals} payable on checkout</p></div>`);
  }
 }
 
@@ -83,7 +79,7 @@ $('.js-instrument-opt').on('input', function() {
 
 
 //open recommended accessories
-
+$(".add-accessory").hide();
 var selectPlanValue = 0;
 var addedaccessories = false;
 
@@ -97,30 +93,12 @@ selectPlanValue = selectPlan.value;
 $price.css("borderRadius", "5px 5px 5px 5px");
 $price.css("paddingTop", "0");
 $price.css("paddingBottom", "0");
-$price.html(`<div class="priceinfo__top"><span class="priceinfo__largetext">Your plan:</span> £${total2decimals} per month for 36 months</div>
-<div class="priceinfo__btm">First installment of £${total2decimals} payable on checkout</div>
+$price.html(`<div class="priceinfo__top"><p class="priceinfo__largetext">YOUR PLAN</p> £${total2decimals} per month for 36 months</div>
+<div class="priceinfo__btm"> <p>Plans can be cancelled penalty-free anytime after 3 months</p> <p>Complete the plan and the instrument is yours to keep</p> <p>First installment of £${total2decimals} payable on checkout</p></div>
 `);
 
 if (addedaccessories == false) {
-$accessories.append(`<div class="add-accessory">
-<img class='checkbox_container__img' src="LMS02-BK-category.jpg" alt="">
-<div>
-<button type="button" onclick="showAccessoryPopup()" class="accessory-popup-btn accessory-description">Opus LMS02 lightweight folding music stand supplied with carrying bag in black</button>
-        <legend>£0.27p for 60 months</legend>
-        <button onclick="addAccessory.call(this);" value="0.27" type="button" class="add-to-plan">ADD TO PLAN</button>
-        </div>
-        </div>
-
-       <div class="add-accessory">
-         <input value="0.99" id="shoulderrest" type="checkbox">
-<img class='checkbox_container__img' src="STN1175A.jpg" alt="">
-<div><button type="button" onclick="showAccessoryPopup()" class="accessory-popup-btn accessory-description">Kun violin shoulder rest 4/4</button>
-        <legend>£0.99p for 60 months</legend>
-         <button onclick="addAccessory.call(this);" value="0.99" type="button" class="add-to-plan">ADD TO PLAN</button>
-        </div>
-        </div>
-`);
-
+$(".add-accessory").show();
 addedaccessories = true;
       }
 $selectplanmessage.css('display', 'none');
@@ -145,18 +123,24 @@ if ($rentalplan.hasClass('rentalplan--open') && (addedaccessories == false)) {
     $(this).addClass(" active");
 }*/
 
+ if (window.matchMedia("(max-width: 768px)").matches) {
 
-function openTab(sectionName) {
-    $('.tabcontent').css("display", "none");
-    $(".tablinks").removeClass("active");
-   var elem = $("#" + sectionName);
+$(".tabcontent").hide();
+$(".tablinks").on("click", function() {
+  $(this).next().slideToggle();
+})
+ }
+
+ else if (window.matchMedia("(min-width: 769px)").matches) {
+   $(".tabcontent").hide();
+$(".tablinks").on("click", function() {
+  $(this).next().appendTo($(".tablinks")[2]);
+})
+ }
  
-    $(this).addClass(" active");
-    console.log($(this))
-}
 
 //Have the description tag display its content
-$('#description').css("display", "block");
+// $('#description').css("display", "block");
 
 //POPUP
 var popup = document.querySelector('.popup');
@@ -165,7 +149,7 @@ var $popupAccessory = $('.popup--accessory');
 var $maincontainer = $('.maincontainer');
 var maincontainer = document.querySelector('.maincontainer');
 
-$('#js-more-info-btn').click(openpopup);
+
 $('.info-how-works').click(openpopup);
 
 function openpopup() {
