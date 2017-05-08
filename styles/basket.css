@@ -18,6 +18,19 @@
     font-size: 15px;
 }
 
+.remove-btn {
+    color: rgb(19, 73, 129);
+   
+}
+
+.per-month {
+    font-size: 14px;
+}
+
+.plan-price {
+    font-size: 18px;
+}
+
 p {
     margin: 0;
     font-size: 15px;
@@ -59,13 +72,21 @@ input[type="number"] {
     margin: 0;
     object-fit: contain;
 }
-
+.quantity-title {
+    font-size: 17px;
+}
 .rental-title {
         margin-bottom: 2px;
         margin-top: 0;
+        font-size: 17px;
 }
 
 @media (max-width: 767px) {
+
+    .plan-price, .per-month {
+        display: inline-block;
+    }
+
     .product {
         display: grid;
         grid-row-gap: 10px;
@@ -103,6 +124,10 @@ input[type="number"] {
 }
 
 @media (min-width: 768px) {
+
+    .remove-btn {
+         margin-top: 10px;
+    }
     .quantity,
     .plan {
         position: relative;
@@ -124,3 +149,10 @@ input[type="number"] {
         display: none;
     }
 }
+/* CODE FOR ANIMATING FADE-OUT OF PRODUCTS WHEN REMOVE KEY IS PRESSED */
+.product { 
+  transition: max-height .1s ease-out, opacity .25s ease-in-out; 
+  max-height: 500px; 
+  transform: translate3d(0, 0, 0);}
+.vanish { opacity: 0; }
+.collapse { max-height: 0;}
