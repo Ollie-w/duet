@@ -31,7 +31,7 @@
     font-size: 18px;
 }
 
-p {
+p, a {
     margin: 0;
     font-size: 15px;
 }
@@ -83,6 +83,26 @@ input[type="number"] {
 
 @media (max-width: 767px) {
 
+    .total-cost-container {
+        margin-top: 20px;
+    }
+
+    .left-side p:first-of-type {
+        display: none;
+    }
+
+    .center-text {
+    text-align: center;
+}
+
+    .left-side textarea {
+        width: 100%;
+    }
+
+    .checkout-btn {
+        width: 100%;
+    }
+
     .plan-price, .per-month {
         display: inline-block;
     }
@@ -125,6 +145,19 @@ input[type="number"] {
 
 @media (min-width: 768px) {
 
+    .left-side {
+        float: left;
+        width: 35%;
+        }
+        .left-side textarea {
+            width: 100%;
+        }
+
+.right-side {
+    float: right;
+    width: 35%; 
+}
+
     .remove-btn {
          margin-top: 10px;
     }
@@ -155,4 +188,221 @@ input[type="number"] {
   max-height: 500px; 
   transform: translate3d(0, 0, 0);}
 .vanish { opacity: 0; }
+.small-to-nothing { opacity: 0; transform: scale(0) translate3d(0, 0, 0) !important;}
 .collapse { max-height: 0;}
+
+.left-side textarea, .left-side label {
+    display: block;
+}
+.left-side textarea {
+    transition: .75s;
+    height: 93px;
+    transform: scale(1) translate3d(0, 0, 0);
+}
+
+
+.left-side button, .right-side button {
+    background-color: rgb(19, 73, 129);
+    color: white;
+}
+
+.total-cost-container {
+    border: solid 1px rgb(200, 200, 200);
+    padding: 20px;
+}
+.checkout-btn {
+    font-weight: bold;
+    padding: 10px 45px;
+    letter-spacing: 1.5px;
+    font-size: 18px;
+    display: block;
+}
+
+.checkout-btn, .need-btn {
+    margin-top: 22px;
+}
+
+button.need-btn {
+    background-color: transparent;
+    color: rgb(19, 73, 129);
+    font-weight: bold;
+    padding: 0;
+}
+
+.center-text h6 {
+    font-size: 19px;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+h5 {
+    margin-top: 0;
+}
+
+button {
+    letter-spacing: .5px;
+}
+
+.per-month {
+    font-weight: bold;
+}
+.total-title {
+    margin: 0;
+    font-size: 20px;
+}
+
+
+
+.popup__only-extra {
+    color: var(--gold);
+    font-family: 'bitter';
+    margin-top: 1.7rem;
+    clear: both;
+}
+
+
+.clearfix {
+    margin-top: 30px;
+}
+
+.popup {
+    position: fixed;
+    display: none;
+    padding: 1rem 3rem 1.75rem 2rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: scale(0) translateY(100%);
+    margin: auto;
+    background-color: white;
+    width: fit-content;
+    max-width: 900px;
+    min-width: 40%;
+    border-radius: 11px;
+    border: solid 6px #3B70A3;
+    z-index: 100;
+    background-image: url(../images-static/more-info-modal-window-background.jpg);
+    background-size: cover;
+    background-position: right;
+    opacity: 0;
+    transition: opacity .1s, transform .25s;
+    transition-timing-function: ease-in-out;
+    will-change: opacity;
+}
+
+.popup--open {
+    opacity: 1;
+    transform: scale(1) translateY(-50%);
+    box-shadow: 0 0 45px 2px white;
+    display: block;
+}
+
+.popup__duetlogo {
+    width: 130px;
+    position: absolute;
+    right: 35px;
+    bottom: 30px;
+}
+
+.popup li,
+.popup--accessory li {
+    margin-top: .75rem;
+    font-size: .9rem;
+    font-weight: 500;
+    color: rgb(50, 50, 50);
+}
+
+.close-btn {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--dark_blue);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.popup h3 {
+    color: var(--extradark_gray);
+    font-size: 1.04rem;
+    font-family: 'bitter';
+}
+.popup h4 {
+    color: var(--dark_blue);
+    font-size: 1.35rem;
+    margin-top: .5rem;
+    font-family: 'bitter';
+}
+
+.popup>*:not(.close-btn) {
+    margin-top: 1rem;
+}
+.popup li {
+    transition: 1s;
+    line-height: 1.2;
+    font-size: 1rem;
+}
+
+.visible {
+    opacity: 1 !important;
+}
+
+.popup ol {
+    max-width: 620px;
+    list-style: none;
+    counter-reset: li;
+    padding-left: 1rem;
+    padding-right: 2.5rem;
+    margin-top: 1.75rem !important;
+}
+
+.popup button {
+    background-color: var(--dark_blue);
+    color: white;
+    padding: .2rem .8rem;
+    margin-top: 2rem !important;
+}
+
+.popup button:hover {
+    background-color: rgb(24, 97, 191);
+}
+
+.popup li::before {
+    content: counter(li);
+    color: var(--lessdark_blue);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    font-weight: 700;
+    font-family: 'bitter';
+    font-size: 1.01rem;
+}
+
+.popup li {
+    counter-increment: li
+}
+.submit-promo {
+    width: 100%;
+    display: flex;
+}
+.submit-promo > button {
+    flex: 1;
+    border-radius: 0 5px 5px 0;
+}
+.submit-promo > input {
+    flex: 2;
+}
+
+.total-price {
+    font-weight: bold;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+h1 {
+    color: black;
+    letter-spacing: 0; 
+    font-size: 25px;
+}
+
