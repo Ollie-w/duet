@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid rgb(191, 191, 191);
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 .grid select {
@@ -16,6 +16,17 @@
     color: white;
     padding: 2px 10px;
     font-size: 15px;
+    margin-top: 10px;
+}
+
+.product .edit-btn {
+    font-size: 12px;
+    padding: 2px 7px;
+}
+
+.product small {
+    margin-bottom: 7px;
+    display: block;
 }
 
 .remove-btn {
@@ -24,11 +35,18 @@
 }
 
 .per-month {
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.total-cost-container .edit-btn {
+    margin-left: 12px;
+    margin-top: 0px;
 }
 
 .plan-price {
-    font-size: 18px;
+    font-size: 21px;
 }
 
 p, a {
@@ -65,10 +83,13 @@ input[type="number"] {
     margin-top: 0;
     font-size: 17px;
     margin-bottom: 5px;
+    display: block;
+    font-family: 'bitter', sans-serif;
 }
 
 .product-image {
     height: 100px;
+    width: 100px;
     margin: 0;
     object-fit: contain;
 }
@@ -82,6 +103,35 @@ input[type="number"] {
 }
 
 @media (max-width: 767px) {
+
+    .left-side label {
+    margin-top: 15px;
+    border-top: solid 1px gray;
+    padding-top: 15px;
+}
+.left-side h5 {
+    border-top: solid 1px gray;
+    padding-top: 15px;
+}
+
+.left-side {
+    border-bottom: solid 1px gray;
+    padding-bottom: 15px;
+}
+
+     .left-side .chevron {
+         top: 18px;
+         right: 0;
+         margin-right: 0;
+         padding-right: 0;
+     }
+
+    .left-side > * {
+        margin: 0;
+        margin-top: 20px;
+        font-size: 17px;
+        font-weight: normal;
+    }
 
     .total-cost-container {
         margin-top: 20px;
@@ -130,6 +180,7 @@ input[type="number"] {
         justify-content: space-between;
         align-items: center;
         order: 2;
+        max-width: 165px;
     }
     .plan {
         order: 3;
@@ -145,9 +196,32 @@ input[type="number"] {
 
 @media (min-width: 768px) {
 
+     .center-text {
+        margin-top: -40px;
+    }
+
+    .left-side label {
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+
+    .left-side h5 {
+        font-size: 18px;
+        font-weight: normal;
+    }
+
+    .left-side .chevron {
+        display: none;
+    }
+
+    .center-text {
+        padding-left: 20px;
+        clear: both;
+    }
+
     .left-side {
         float: left;
-        width: 35%;
+        width: 40%;
         }
         .left-side textarea {
             width: 100%;
@@ -155,11 +229,11 @@ input[type="number"] {
 
 .right-side {
     float: right;
-    width: 35%; 
+    width: 40%; 
 }
 
     .remove-btn {
-         margin-top: 10px;
+         margin-top: 20px;
     }
     .quantity,
     .plan {
@@ -170,6 +244,7 @@ input[type="number"] {
         position: absolute;
         top: -40px;
         font-weight: bold;
+        white-space: nowrap;
     }
     .product:first-child .quantity:before {
         content: "Qty";
@@ -212,8 +287,8 @@ input[type="number"] {
 }
 .checkout-btn {
     font-weight: bold;
-    padding: 10px 45px;
-    letter-spacing: 1.5px;
+    padding: 10px 40px;
+    letter-spacing: 1px;
     font-size: 18px;
     display: block;
 }
@@ -235,16 +310,17 @@ button.need-btn {
     margin-top: 20px;
 }
 h5 {
-    margin-top: 0;
+    margin: 0;
+    position: relative;
+}
+label {
+    position: relative;
 }
 
 button {
     letter-spacing: .5px;
 }
 
-.per-month {
-    font-weight: bold;
-}
 .total-title {
     margin: 0;
     font-size: 20px;
@@ -276,12 +352,11 @@ button {
     margin: auto;
     background-color: white;
     width: fit-content;
-    max-width: 900px;
+    max-width: 700px;
     min-width: 40%;
     border-radius: 11px;
-    border: solid 6px #3B70A3;
+    border: solid 3px rgb(13, 77, 141);
     z-index: 100;
-    background-image: url(../images-static/more-info-modal-window-background.jpg);
     background-size: cover;
     background-position: right;
     opacity: 0;
@@ -290,11 +365,14 @@ button {
     will-change: opacity;
 }
 
+
+
 .popup--open {
     opacity: 1;
     transform: scale(1) translateY(-50%);
-    box-shadow: 0 0 45px 2px white;
+    /*box-shadow: 0 0 45px 2px white; */
     display: block;
+        z-index: 201;
 }
 
 .popup__duetlogo {
@@ -307,7 +385,7 @@ button {
 .popup li,
 .popup--accessory li {
     margin-top: .75rem;
-    font-size: .9rem;
+    font-size: 17px;
     font-weight: 500;
     color: rgb(50, 50, 50);
 }
@@ -318,18 +396,18 @@ button {
     top: -20px;
     width: 40px;
     height: 40px;
-    background-color: var(--dark_blue);
+    background-color: rgb(13, 77, 141);
     border-radius: 50%;
     cursor: pointer;
 }
 
 .popup h3 {
-    color: var(--extradark_gray);
+    color: rgb(13, 77, 141);
     font-size: 1.04rem;
     font-family: 'bitter';
 }
 .popup h4 {
-    color: var(--dark_blue);
+    color: rgb(13, 77, 141);
     font-size: 1.35rem;
     margin-top: .5rem;
     font-family: 'bitter';
@@ -341,7 +419,6 @@ button {
 .popup li {
     transition: 1s;
     line-height: 1.2;
-    font-size: 1rem;
 }
 
 .visible {
@@ -353,16 +430,17 @@ button {
     list-style: none;
     counter-reset: li;
     padding-left: 1rem;
-    padding-right: 2.5rem;
+   
     margin-top: 1.75rem !important;
 }
 
 .popup button {
-    background-color: var(--dark_blue);
+    background-color: rgb(13, 77, 141);
     color: white;
     padding: .2rem .8rem;
-    margin-top: 2rem !important;
 }
+
+
 
 .popup button:hover {
     background-color: rgb(24, 97, 191);
@@ -384,20 +462,27 @@ button {
 }
 .submit-promo {
     width: 100%;
+    max-width: 100%;
+    margin: 0;
     display: flex;
 }
 .submit-promo > button {
-    flex: 1;
+    flex: 1 2 auto;
+    margin: 0;
     border-radius: 0 5px 5px 0;
 }
 .submit-promo > input {
-    flex: 2;
+    flex: 20 1 auto;
+    margin: 0;
+    border-right: 0;
 }
 
 .total-price {
     font-weight: bold;
-    font-size: 21px;
+    font-size: 23px;
     font-weight: bold;
+    line-height: 1;
+    margin-top: 10px;
 }
 
 h1 {
@@ -406,3 +491,309 @@ h1 {
     font-size: 25px;
 }
 
+button.info-how-works {
+    color: rgb(19, 73, 129);;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.question {
+    width: .9em;
+    height: .9em;
+    position: relative;
+    top: 1px;
+    fill: rgb(19, 73, 129);
+}
+
+.info-how-works {
+    margin-top: 15px;
+}
+
+.how-works h3 {
+    color: black;
+}
+
+.first-installment {
+    margin-top: 15px;
+}
+
+.popup .edit select {
+    width: 100%;
+    max-width: 400px;
+}
+
+.submit-promo {
+    margin-top: 10px;
+}
+
+.red {
+    color:rgb(205, 43, 40);
+    font-weight: bold;
+    margin: 15px 0 10px 0;
+}
+
+@media (min-width: 1000px) {
+    .left-side, .right-side {
+        width: 35%;
+    }
+        .center-text {
+        margin-top: -60px;
+    }
+}
+
+@media (min-width: 768px) {
+    .how-works {
+        background-image: url(../images-static/more-info-modal-window-background.jpg);
+}
+
+.popup ol {
+     padding-right: 2.5rem;
+}
+}
+
+.popup select {
+    width: 70%;
+}
+
+@media (max-width: 767px) {
+
+    .popup select {
+    width: 100%;
+    margin-top: 0 !important;
+}
+
+.to-side-of-image {
+    display: inline-block;
+    width: 62%;
+}
+
+.popup .product-image {
+    vertical-align: top;
+}
+
+.popup {
+    padding: 20px;
+    padding-top: 35px;
+}
+
+.popup__duetlogo {
+    display: none;
+}
+.popup {
+    width: 100vw !important;
+    overflow-y: scroll;
+   
+}
+
+.popup--open {
+    transform: scale(1) translateY(0);
+     top: 0;
+bottom: 0;
+}
+    .close-btn {
+top: 5px;
+right: 5px;
+    }
+
+}
+
+.edit-total-plan button {
+    display: block;
+}
+
+.edit-total-plan p:first-of-type {
+    margin-bottom: 20px;
+} {
+
+}
+
+.edit-popup h4 {
+    font-family: 'Source Sans Pro', arial, san-serif;
+    font-size: 17px;
+    color: black;
+    letter-spacing: 1px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.dispatched-in {
+    margin-top: 0 !important;
+}
+
+.popup label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.popup {
+    width: 85%;
+}
+
+@media (min-width: 768px) {
+.edit-popup {
+    max-width: 800px;
+    padding: 35px 35px;
+}
+
+    .to-side-of-image, .also-to-side-of-image {
+        float: right;
+        width: 64%;
+        clear: both;
+    }
+
+    .edit-popup .product-image {
+        width: 25%;
+        height: auto;
+            position: absolute;
+    left: 20px;
+    }
+
+    .free, .dispatched-in {
+        display: inline-block;
+    }
+
+    .how-works {
+        width: 70%;
+    }
+}
+
+.deliv > * {
+    font-size: 14px;
+}
+
+.popup button {
+    letter-spacing: 1.5px;
+    padding: 8px 25px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.also-to-side-of-image h4 {
+margin-bottom: 18px;
+}
+
+.also-to-side-of-image p {
+    margin-top: 30px;
+}
+
+.edit-popup h3 {
+    margin: 0;
+    margin-bottom: 4px;
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.edit-popup small {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.edit-total-plan {
+    max-width: 500px;
+    min-width: initial;
+}
+
+.edit-total-plan h4 {
+        margin-bottom: 15px;
+    color: black;
+     font-family: 'Source Sans Pro', arial, san-serif;
+     font-size: 18px;
+     letter-spacing: 1px;
+}
+
+.popup select {
+        background-position: right 0px top 2px;
+}
+
+.product small {
+    font-size: 14px;
+}
+
+.delivery p {
+    font-size: 14px;
+}
+
+@media (min-width: 767px) {
+    .edit-popup select, .edit-popup label {
+        display: inline-block;
+    }
+    .edit-popup label {
+        margin-right: 10px;
+    }
+}
+
+.edit-inner {
+    position: relative;
+}
+
+.edit-total-plan {
+        padding-left: 40px;
+        padding-bottom: 40px;
+}
+
+.edit-total-plan button {
+        margin-top: 30px !important;
+}
+
+.what-you-will-need {
+    margin-top: 10px;
+}
+
+@media (min-width: 1000px) {
+    .product-image {
+          height: 130px;
+          width: 130px;
+    }
+    .product-title-and-stuff {
+    width: 65%;
+    margin-right: 16px;
+}
+}
+
+@media (min-width: 767px) and (max-width: 1000px) {
+    .product-title-and-stuff {
+    width: 35%;
+}
+
+.plan p {
+    font-size: 14px;
+}
+.plan .plan-price {
+    font-size: 18px;
+}
+
+.quantity .remove-btn {
+    font-size: 14px;
+}
+
+.grid select {
+    width: 55px;
+}
+
+.product-title-and-stuff p {
+    font-size: 14px;
+}
+
+.product-title {
+    font-size: 16px;
+}
+}
+
+.edit-popup button {
+    margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+    .edit-popup h3, .edit-total-plan h3 {
+        font-size: 17px;
+    }
+
+    .popup br {
+        display:none;
+    }
+}
+
+.also-to-side-of-image p {
+    font-size: 15px;
+}

@@ -46,7 +46,7 @@
 
 .affordable-practical-flexible h2 {
     font-family: 'Bitter', serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     color: #0e4d8d;
     text-transform: uppercase;
@@ -55,6 +55,7 @@
     padding: 0px 0px 0px 0px;
     margin-top: 10px;
     margin-bottom: 0;
+    padding-bottom: 5px;
 }
 
 
@@ -113,7 +114,7 @@
     }
 
     .new-concept-heading-container p {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
         letter-spacing: 1px;
     }
 
@@ -203,4 +204,21 @@
         overflow: hidden;
     }
 
+}
+
+
+
+.affordable-practical-flexible {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+main.how-it-works {
+    margin-top: 40px;
+}
+
+@media(min-width: 767px) {
+.affordable-practical-flexible > div * {
+    margin: 0;
+}
 }
