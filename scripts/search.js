@@ -7,7 +7,7 @@
        document.querySelector("body").style.position = "fixed";
    })
 
-    var closeSidebarBtn = document.querySelector(".close-sidebar");
+    var closeSidebarBtn = document.querySelector(".sidebar-title-container .close-sidebar");
    closeSidebarBtn.addEventListener("click", function() {
        sidebar.classList.remove("sidebar-showing");
        sidebarTitle.textContent = "REFINE RESULTS";

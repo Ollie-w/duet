@@ -3,6 +3,8 @@ var $dropbtn = $(".drop-btn");
 var $wrapper =  $(".wrapper");
 var $mainmenu = $(".main-menu");
 var $searchbar = $(".search-bar");
+var searchMobile = document.querySelector(".search-bar-mobile");
+var mobileInput = searchMobile.querySelector("input")
 var $btntext = $(".btn-text");
 var $body =  $("body");
 
@@ -13,6 +15,7 @@ function stuffToDoAtVariousSizes() {
 
         //OPEN SUBMENUS AND TURN SVG ICONS AROUND. ONLY ONE SUBMENU CAN BE OPEN AT A TIME, OPENING ONE CLOSES OTHERS
        $dropbtn.off("click.submenu").on("click.submenu", function (e) {
+           e.preventDefault();
             $dropbtn.not(this).removeClass("blue-background");
             if ($(this).hasClass("blue-background")) {
                 $(this).removeClass("blue-background");
@@ -44,7 +47,14 @@ function stuffToDoAtVariousSizes() {
             //HIDE AND SHOW SEARCH BAR. 
 
             $(".search-btn").off("click.search").on("click.search", function () {
-                   $searchbar.toggleClass("display-none");
+                if (searchMobile.classList.contains("display-none")) {
+                    searchMobile.classList.remove("display-none");
+                    mobileInput.focus();
+                }
+                else {
+                     mobileInput.blur();
+                    searchMobile.classList.add("display-none")
+                }
                 });
         }
  if (window.matchMedia("(min-width: 1200px)").matches) {

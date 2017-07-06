@@ -1,8 +1,12 @@
 $message = $("#message");
 
 $('.send-message-form').submit(function(e) {
-    if ( !$("#message").val() || !$("#email").val() || !$("#name").val() ) { 
-    e.preventDefault();    
+     e.preventDefault();    
+    if ( !$("#message").val() || !$("#email").val() || !$("#name").val() ) {
+
+        var allFieldsRequired = document.querySelector(".right small");
+        allFieldsRequired.setAttribute("role", "alert");
+
 if ( !$("#message").val() ) {
     $("#no-message").css("visibility", "visible");
      $("#message").addClass("red-focus");
@@ -20,8 +24,10 @@ if ( !$("#message").val() ) {
     }
 }
 else {
-   $("main").addClass('blurfilter');
-   $("success-popup").addClass('success-open');
+  //HELLO JENNY
+
+showPopup();
+
 }
 });
 
@@ -51,3 +57,40 @@ $("#message").change(function() {
 });
 
 
+//close popup animation 
+
+var sendBtn = document.getElementById("send-message-form-button");
+var closePopButton = document.querySelector(".success-popup button");
+var successPopup = document.querySelector(".success-popup");
+var inputs = Array.from(document.querySelectorAll("input, textarea"));
+
+ var frames = [
+  {opacity: 0, filter: 'blur(3px)', transform: 'translateY(-100vh) scaleX(.7)'},
+  {filter: 'blur(0)'},
+  {opacity: 1, transform: 'translateY(0) scaleX(1)'}
+]
+
+
+var animationOptions = {
+  duration: 350,
+  easing: 'ease-out',
+  fill: 'both'
+}
+
+
+var popAnimation = successPopup.animate(frames, animationOptions);
+popAnimation.pause()
+function showPopup() {
+popAnimation.playbackRate = 1;
+popAnimation.play()
+}
+
+function closePopup() {
+inputs.forEach(function(input) {
+    input.value = "";
+})
+popAnimation.reverse();
+/*popAnimation.onfinish = function() {successPopup.remove()} */   
+}
+
+closePopButton.addEventListener("click", closePopup)

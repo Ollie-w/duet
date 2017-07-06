@@ -1,38 +1,40 @@
 var pswpElement = document.querySelectorAll('.pswp')[0];
 
-var cells = document.querySelectorAll(".primary-images .carousel-cell > img");
+var cells = Array.from(document.querySelectorAll(".primary-images .carousel-cell > img"));
 // build items array
-var items = [
-    {
-        src: cells[0].src,
-        w: 600,
-        h: 400
-    },
-    {
-        src: cells[1].src,
-        w: 1200,
-        h: 900
-    },
-     {
-        src: cells[2].src,
-        w: 1200,
-        h: 900
-    }
-];
 
+var items = [];
 
+cells.forEach(function(cell) {
+items.push({
+    src: cell.src,
+    w: 1200,
+    h: 900
+})
+})
 
-// Initializes and opens PhotoSwipe
+ var ccell = document.querySelector(".carousel-cell")
 
+function dothings() {
+  if (flkty != null) {
 
-
-    $(".primary-images .carousel-cell > img").click(function() {
+   $(".carousel-cell").on('click', function() {
 var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, {
     // optionName: 'option value'
     // for example:
-    index: flkty.selectedIndex// start at first slide
+    index: cells.length == 1 ? 0 : flkty.selectedIndex
 });
 gallery.init();
 });
+}
+else {
+   
+    ccell.addEventListener("click", function() {
+        var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items);
+gallery.init();
+    })
+}
+}
 
-
+// Initializes and opens PhotoSwipe
+$(".main-carousel img").imagesLoaded(dothings)

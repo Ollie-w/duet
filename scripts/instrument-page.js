@@ -69,26 +69,11 @@ function variantselected() {
     // remove image carousel cells, add new images, refresh carousel 
     n = parseInt(xmlDoc.getElementsByTagName("numImages")[0].childNodes[0].nodeValue);
     DOMNode = document.getElementsByClassName("main-carousel")[0];
-
-      var newitems = [];
-
-var cellimages = Array.from(document.querySelectorAll(".primary-images .carousel-cell > img"));
-
-cellimages.forEach(function(cell) {
-newitems.push({
-src: cellimages.src,
-w: 1200,
-h: 900
-})
-})
-
     if (n == 1)
       DOMNode.innerHTML = '';
     else {
       var cells = document.querySelectorAll(".carousel-cell");
       flkty.remove(cells);
-
-      
     }
     for (i = 0; i <= n - 1; i++) {
       newImage = document.createElement("img")
@@ -111,15 +96,13 @@ h: 900
       newDiv.className = "carousel-cell";
       if (n == 1) {
         DOMNode.appendChild(newDiv)
-            var ccell = document.querySelector(".carousel-cell")
-    ccell.addEventListener("click", function() {
-        var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, newitems);
-gallery.init();
-    })
+        var ccell = document.querySelector(".carousel-cell")
+        ccell.addEventListener("click", function() {
+          var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items);
+          gallery.init(); })
       }
       else {
-        flkty.append(newDiv);
-    }
+        flkty.append(newDiv); }
     }
 
     n = parseInt(xmlDoc.getElementsByTagName("numLinkedProds")[0].childNodes[0].nodeValue);
