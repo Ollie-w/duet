@@ -17,6 +17,7 @@ function removeit(int) {
 }
 
 /* refresh data when product selected or changed. Don't have to test for product-not-found as the _refresh page handles that */
+var items = [];
 function variantselected() {
   var temp = '';
   var n = 0;
@@ -75,6 +76,8 @@ function variantselected() {
       var cells = document.querySelectorAll(".carousel-cell");
       flkty.remove(cells);
     }
+
+    
     for (i = 0; i <= n - 1; i++) {
       newImage = document.createElement("img")
       xmlNode = xmlDoc.getElementsByTagName("ImageList")[0];
@@ -94,12 +97,17 @@ function variantselected() {
       newDiv = document.createElement("div")
       newDiv.appendChild(newImage);
       newDiv.className = "carousel-cell";
+      items.push({
+    src: newImage.src,
+    w: 1200,
+    h: 900
+})
+
       if (n == 1) {
         DOMNode.appendChild(newDiv)
-        var ccell = document.querySelector(".carousel-cell")
-        ccell.addEventListener("click", function() {
-          var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items);
-          gallery.init(); })
+         
+        
+   
       }
       else {
         flkty.append(newDiv); }
@@ -353,7 +361,36 @@ function variantselected() {
 
     document.getElementById("activeproduct").value = xmlDoc.getElementsByTagName("Product")[0].childNodes[0].nodeValue;
 
-  } // end if item selected is different
+  } 
+  redoCarouselClicker()
+  // end if item selected is different
+}
+
+function redoCarouselClicker() {
+
+  var cells = Array.from(document.querySelectorAll(".primary-images .carousel-cell > img"));
+// build items array
+
+items = [];
+
+cells.forEach(function(cell) {
+items.push({
+    src: cell.src,
+    w: 1200,
+    h: 900
+})
+})
+
+console.log(items)
+
+       var ccells = Array.from(document.querySelectorAll(".carousel-cell"))
+       console.log(ccells)
+        ccells.forEach((cell) => cell. addEventListener("click", function() {
+         
+          var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, {
+            index: cells.length == 1 ? 0 : flkty.selectedIndex
+          });
+          gallery.init(); }))
 }
 
 function settabsection(tabtext, tabname, fieldname, tabtitle) {

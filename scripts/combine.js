@@ -1,5 +1,10 @@
 var pswpElement = document.querySelectorAll('.pswp')[0];
 
+
+
+ var ccell = document.querySelector(".carousel-cell")
+
+function dothings() {
 var cells = Array.from(document.querySelectorAll(".primary-images .carousel-cell > img"));
 // build items array
 
@@ -13,9 +18,6 @@ items.push({
 })
 })
 
- var ccell = document.querySelector(".carousel-cell")
-
-function dothings() {
   if (flkty != null) {
 
    $(".carousel-cell").on('click', function() {
